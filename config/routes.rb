@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'products/write'
 
-  get 'products/write_complete'
+  post 'products/write_complete'
 
   get 'products/edit'
 
