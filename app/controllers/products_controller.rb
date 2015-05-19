@@ -44,9 +44,22 @@ class ProductsController < ApplicationController
   end
 
   def edit
+@post = Post.find(params[:id])
   end
 
   def edit_complete
+   post = Post.find(params[:id])
+   post.category = params[:post_category]
+   post.title = params[:post_title]
+   post.content = params[:post_content]
+   if post.save
+      flash[:alert] = "수정되었습니다."
+      redirect_to "/products/show/#{post.id}"
+   else
+      flash[:alert] = post.errors.values.flatten.join(' ')
+      edirect_to :back
+   end
+  
   end
 
   def delete_complete

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   post 'products/write_complete'
 
-  get 'products/edit'
+  get "products/edit/:id" => 'products#edit'
 
-  get 'products/edit_complete'
+  post 'products/edit_complete'
 
   get 'products/delete_complete'
 
