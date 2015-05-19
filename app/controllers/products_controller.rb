@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       when "outer"
             @category = "아우터"
       else
-          @category = "엑세사리"
+          @category = "악세사리"
  end
  @posts = Post.where(category: @category)
 
@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @post=Post.find(params[:id])
   end
 
   def write

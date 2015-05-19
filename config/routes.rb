@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "/:category"=>'products#posts_category'
 
-  get 'products/show'
+  get "products/show/:id"=>'products#show'
 
   get 'products/write'
 
