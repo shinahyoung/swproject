@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+#dfsljflsdjfls
 
 categories = ["상의","하의","드레스","아우터","악세사리"]
 
