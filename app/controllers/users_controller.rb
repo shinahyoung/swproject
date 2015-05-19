@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   def signup_complete
   user = User.new
   user.username = params[:username]
+  user.name=params[:name]
+  user.phone=params[:phone]
+  user.addr=params[:addr]
+  user.email=params[:email]
+  user.birth=params[:birth]
   if params[:password] == params[:retype_password]
      user.password = params[:password]
   if user.save
