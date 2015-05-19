@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  root 'products#posts'
+
+  get "/:category"=>'products#posts_category'
+
+  get 'products/show'
+
+  get 'products/write'
+
+  get 'products/write_complete'
+
+  get 'products/edit'
+
+  get 'products/edit_complete'
+
+  get 'products/delete_complete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

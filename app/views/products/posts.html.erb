@@ -1,0 +1,15 @@
+ <div>
+   <h2>즐거운 쇼핑 Time!</h2>
+     <p>지갑을 열어봐~</p>
+     </div>
+
+     <hr>
+
+     <% @posts.reverse.each do |post| %>
+     <div style="border: 1px solid #ffffff">
+       <h4><%= post.title %></h4>
+         <p style="color: #ff0000"><%= post.category %></p>
+           <p>작성자 아이디</p>
+             <p><%= post.content %></p>
+             </div>
+             <% end %>
