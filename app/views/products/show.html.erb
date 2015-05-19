@@ -5,6 +5,6 @@
   <h4>상품명: <%= @post.title %></h4>
     <p style="color: #ff0000">분류: <%= @post.category %></p>
       <p>소개: <%= @post.content %></p>
-<p><a href="/products/edit/<%= @post.id %>">수정</a></p>
+        <p><a href="/products/edit/<%= @post.id %>">수정</a> | <a href="/products/delete_complete/<%= @post.id %>">삭제</a></p>
         <p><a href="/">전체 리스트 가기</a></p>
         </div>
