@@ -1,18 +1,29 @@
-<h2>회원 가입하기</h2>
+<div class="row">
+    <div class="col-md-4">
+        </div>
+            <div class="col-md-4 text-center">
+<h3>회원 가입하기</h3>
 
 <hr>
 <p><%= flash[:alert] %></p>
 <hr>
-<form action="/users/signup_complete" method="post">
-  <p>아이디: <input type="text" name="username"></p>
-  <p>비밀번호: <input type="password" name="password"></p>
-  <p>비밀번호 확인: <input type="password" name="retype_password"></p>
-  <p>이름: <input type="name_type" name="name"></p>
-  <p>생년월일: <input type="birth_type" name="birth"></p>
-  <p>주소: <input type="addr_type" name="addr"></p>
-  <p>연락처: <input type="phone_type" name="phone"></p>
-  <p>이메일: <input type="email_type" name="email"></p>
 
-  <input type="submit" value="가입">
+<form action="/users/signup_complete" method="post">
+  <p><input class="form-input" type="text" name="username" placeholder="아이디"></p>
+  <p><input class="form-input" type="password" name="password" placeholder="비밀번호"></p>
+  <p><input class="form-input" type="password" name="retype_password" placeholder="비밀번호 확인"></p>
+  <p><input class="form-input" type="name_type" name="name" placeholder="이름"></p>
+  <p><input class="form-input" type="birth_type" name="birth" placeholder="생일"></p>
+  <p><input class="form-input" type="addr_type" name="addr" placeholder="주소"></p>
+  <p><input class="form-input" type="phone_type" name="phone" placeholder="연락처"></p>
+  <p><input class="form-input" type="email_type" name="email" placeholder="e-mail"></p>
+
+  <input class="btn btn-lg btn-block" type="submit" value="가입">
   
 </form>
+</div>
+<div class="col-md-4">
+</div>
+</div>
+</div>
+
