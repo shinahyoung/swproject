@@ -22,12 +22,22 @@
 #end
 
 u = User.new
-u.username = "charles"
-u.password = "12345678"
+u.id=1
+u.username = "admin"
+u.password = "111111"
+u.name="administrator"
+u.phone="000-0000-0000"
+u.addr="00000000000000"
+u.birth="0000-00-00"
 u.save
 
 u = User.new
-u.username = "robert"
-u.password = "87654321"
+u.id=2
+u.username = "guest1"
+u.password = "111111"
+u.name="guest1"
+u.phone="000-0000-0000"
+u.addr="00000000000000"
+u.birth="0000-00-00"
 u.save
 
