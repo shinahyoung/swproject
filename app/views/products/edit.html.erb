@@ -1,7 +1,7 @@
 <p><%= flash[:alert] %></p>
 <h2>상품 소개글 수정하기</h2>
 
-<form action="/products/edit_complete" method="post">
+<form action="/products/edit_complete" method="post" enctype="multipart/form-data">
   <input type="hidden" name="id" value="<%= @post.id %>">
    <p style="color: #ff0000">분류:
    <select name="post_category">
@@ -13,5 +13,6 @@
    </select></p>
    <p>제목: <input type="text" name="post_title" value="<%= @post.title %>"></p>
    <p>내용: <textarea name="post_content"><%= @post.content %></textarea></p>
+   <p>사진 업로드: <input type="file" name="image"></p>
    <input type="submit" value="수정하기">
 </form>
