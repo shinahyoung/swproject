@@ -2,7 +2,8 @@
  || <a href="/top">상의</a> 
  | <a href="/bottom">하의</a> | <a href="/dress">드레스</a> 
  | <a href="/outer">아우터</a> | <a href="/accessory">악세사리</a> 
- | <a href="/products/write">글쓰기</a>
+ <% if session[:user_id]==1 %> | <a href="/products/write">상품추가</a>
+ <% end %>
  || <% if session[:user_id].nil? %>
 <a href="/users/signup">회원가입</a> |
 <a href="/users/login">로그인</a>

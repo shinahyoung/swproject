@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def show
     @post=Post.find(params[:id])
+    @user=session[:user_id]
   end
 
   def write_complete
@@ -48,7 +49,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-@post = Post.find(params[:id])
+ @post = Post.find(params[:id])    
+   if @post.user_id != session[:user_id]
+       flash[:alert] = "수정 권한이 없습니다."
+       redirect_to :back
+   end
   end
 
   def edit_complete
