@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   user.birth=params[:birth]
   if params[:password] == params[:retype_password]
      user.password = params[:password]
-  if user.save
-     flash[:alert] = "성공적으로 가입되었습니다."
-     redirect_to "/"
-  else
-     flash[:alert] = user.errors.values.flatten.join(' ')
-     redirect_to :back
-  end
+     if user.save
+        flash[:alert] = "성공적으로 가입되었습니다."
+    else
+         flash[:alert] = user.errors.values.flatten.join(" ")
+
+         redirect_to :back
+    end
   else
      flash[:alert] = "비밀번호가 맞지 않습니다."
      redirect_to :back

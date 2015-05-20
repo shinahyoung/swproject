@@ -1,6 +1,7 @@
-<p><%= flash[:alert] %></p>
 <h2>로그인하기</h2>
-
+<hr>
+<p><%= flash[:alert] %></p>
+<hr>
 <form action="/users/login_complete" method="post">
   <p>아이디: <input type="text" name="username"></p>
   <p>비밀번호: <input type="password" name="password"></p>
