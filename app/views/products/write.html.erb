@@ -1,7 +1,7 @@
 <p><%= flash[:alert] %></p>
 <h2>상품 추가하기</h2>
 
-<form action="/products/write_complete" method="post">
+<form action="/products/write_complete" method="post" enctype="multipart/form-data">
   <p style="color: #ff0000">분류:
   <select name="post_category">
   <option value="상의">상의</option>
@@ -12,6 +12,7 @@
   </select></p>
   <p>제목: <input type="text" name="post_title" placeholder="제목을 입력하세요."></p>
   <p>내용: <textarea name="post_content" placeholder="내용을 입력하세요."></textarea></p>
+  <p>사진 업로드: <input type="file" name="image"></p>
   <input type="submit" value="추가하기">
   </form>
 
