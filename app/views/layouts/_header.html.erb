@@ -1,14 +1,28 @@
-<h4><a href="/">쇼핑몰</a>
- || <a href="/top">상의</a> 
- | <a href="/bottom">하의</a> | <a href="/dress">드레스</a> 
- | <a href="/outer">아우터</a> | <a href="/accessory">악세사리</a> 
- <% if session[:user_id]==1 %> | <a href="/products/write">상품추가</a>
- <% end %>
- || <% if session[:user_id].nil? %>
-<a href="/users/signup">회원가입</a> |
-<a href="/users/login">로그인</a>
-<% else %>
-<a href="/users/logout_complete">로그아웃</a>
-<% end %>
-</h4> 
+<div class="container">
+   <h1 class="title"><a class="title-link" href="/">쇼핑몰</a></h1>
+</div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="/top">상의</a></li>
+      <li><a href="/bottom">하의</a></li>
+      <li><a href="/dress">드레스</a></li>
+      <li><a href="/outer">아우터</a></li>
+      <li><a href="/accessory">악세사리</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if session[:user_id]==1 %>
+      <li><a href="/products/write">상품추가</a></li>
+      <% end %>
+      <% if session[:user_id].nil? %>
+      <li><a href="/users/signup">회원가입</a></li>
+      <li> <a href="/users/login">로그인</a></li>
+      <% else %>
+      <li><a href="/users/logout_complete">로그아웃</a></li>
+      <% end %>
+    </ul>
+ </div>
+</nav>
+
  
