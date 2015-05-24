@@ -86,18 +86,8 @@
 
 
 <hr>
-	<div class="btn-group btn-group-justified" role="group" aria-label="...">
-	  <div class="btn-group" role="group">
-	    <button type="button" class="btn btn-default">BUT IT NOW</button>
-	  </div>
-	  <div class="btn-group" role="group">
-	    <button type="button" class="btn btn-default">ADD TO WISH LIST</button>
-	  </div>
-	  <div class="btn-group" role="group">
-	    <button type="button" class="btn btn-default">ADD TO CART</button>
-	  </div>
-	</div>
 
+<%=button_to 'ADD TO CART',line_items_path(post_id:@post.id)%>
 
         </div><div class="col-md-1">
         </div>
