@@ -1,0 +1,15 @@
+<h1>Catalog</h1>
+
+<% @products.each do |product| %>
+<div class="item">
+	<%= image_tag(product.image_url, class: 'product_cover') %>
+	<div class="description">
+		<h3><%= product.name %></h3>
+		<p><%= product.description %></p>
+		<p class="price">Price <%= book.price %> KRW</p> 
+		<div class="add_cart">
+			Add Cart
+		</div>
+	</div>
+</div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'market/index'
+
   get 'users/signup'
 
   post 'users/signup_complete'

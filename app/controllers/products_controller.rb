@@ -67,7 +67,12 @@ class ProductsController < ApplicationController
    post.category = params[:post_category]
    post.title = params[:post_title]
    post.content = params[:post_content]
+   post.price=params[:post_price]
+   post.point=params[:post_point]
+   post.options=params[:post_option]
+   post.qty=params[:post_qty]
    post.image=params[:image]
+
    if post.save
       flash[:alert] = "수정되었습니다."
       redirect_to "/products/show/#{post.id}"

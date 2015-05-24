@@ -4,7 +4,7 @@
             <div class="col-md-4 text-center">
 <h3 class="form-heading">상품 소개글 수정하기</h3>
 
-<form action="/products/edit_complete" method="post">
+<form action="/products/edit_complete" method="post" enctype="multipart/form-data">
   <input type="hidden" name="id" value="<%= @post.id %>">
    <p>+ 분류
    <select name="post_category">
@@ -16,6 +16,10 @@
    </select></p>
    <p>제목: <input class="form-input" type="text" name="post_title" value="<%= @post.title %>"></p>
    <p>내용: <textarea class="form-textarea" name="post_content"><%= @post.content %></textarea></p>
+   <p>가격: <input class="form-input" type="text" name="post_price" value="<%=@post.price%>"></p>
+   <p>포인트: <input class="form-input" type="text" name="post_point" value="<%=@post.point%>"></p>
+   <p>옵션: <textarea class="form-textarea" name="post_option"><%=@post.options%></textarea></p>
+   <p>수량: <input class="form-input" type="text" name="post_qty" value="<%=@post.qty%>"></p>
    <p>+ 사진 업로드</p> 
    <p><input type="file" name="image"></p>
    <input class="btn btn-lg btn-block" type="submit" value="수정하기">
