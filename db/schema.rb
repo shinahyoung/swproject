@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150524103139) do
 
   create_table "carts", force: :cascade do |t|
+    t.integer  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +30,10 @@ ActiveRecord::Schema.define(version: 20150524103139) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "cart_id"
+    t.integer  "point"
+    t.integer  "price"
+    t.integer  "qty"
+    t.text     "options"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

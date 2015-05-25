@@ -25,10 +25,19 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
 
-#    @line_item = LineItem.new(line_item_params)
-  @cart = current_cart
-    post = Post.find(params[:post_id])
-      @line_item = @cart.line_items.build(post: post)
+# @line_item = LineItem.new(line_item_params)
+    @cart = current_cart
+    post = Post.find(params[:bb])
+    @line_item = @cart.line_items.build(post: post)
+    @line_item.options=params[:option_menu]
+    @line_item.price=post.price*params[:amount].to_i
+    @line_item.point=post.point*params[:amount].to_i
+    @line_item.options=params[:option_menu]
+    @line_item.qty=params[:amount]
+    @cart.total=0
+    @cart.line_items.each do |item|
+        @cart.total=@cart.total+item.price
+    end
 
     respond_to do |format|
       if @line_item.save
@@ -76,6 +85,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:post_id, :cart_id)
+      params.require(:line_item).permit(:post_id, :cart_id,:amount,:option_menu)
     end
 end

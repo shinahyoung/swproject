@@ -1,3 +1,5 @@
+<form action="/line_items/create" method="post">
+
 <div class="row">
     <div class="col-md-1">
         </div>
@@ -51,7 +53,7 @@
             <select name="option_menu">
             <option value="">--옵션선택--</option>
             <% for a in @post.options.split("\n")%>
-            <option value=<%a%>><%=a=%></option> 
+            <option value="<%=a%>"><%=a=%></option>
             <%end%>
             </select>
             
@@ -86,9 +88,10 @@
 
 
 <hr>
-
-<%=button_to 'ADD TO CART',line_items_path(post_id:@post.id)%>
-
+<input type="hidden" name="bb" value=<%=@post.id%>>
+<input type="submit" value="test">
+</form>
+<%=button_to 'ADD TO CART',line_items_path(:bb=>@post.id)%>
         </div><div class="col-md-1">
         </div>
         </div>

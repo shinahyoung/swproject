@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :carts
   get 'market/index'
 
+  post 'line_items/create'
+  
   get 'users/signup'
 
   post 'users/signup_complete'
