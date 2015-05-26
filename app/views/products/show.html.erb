@@ -27,7 +27,7 @@
            <%c=d+c%>
            <%i=i+1%>
          <%end%>
-         <%=c=%> 
+         <%=c=%>원 
        
  	  </tr>
 	  <tr>
@@ -62,13 +62,10 @@
           </tr>
 	  <tr>
                 <th scope="row" height="30dp">qty</th>
-		<td>
-		  <div class="opt-btns">
-                    <input type="text" id="goods_amount" name="amount" value="1" size="4" style="text-align: right;"  />                                                        <a href="javascript:CountChange('up');"><img class="btn-up" src="/design/babirolen/201502/contents/de_up.gif" alt="수량증가" title="수량증가" /></a>
-      <a href="javascript:CountChange('down');"><img class="btn-dw" src="/design/babirolen/201502/contents/de_down.gif" alt="수량감소" title="수량감소" /></a>
-                  </div>
+		
 
-		</td>
+<td><span style="font-size:12px;color:#555555;"><span id='NewProductQuantityDummy' ><span class="quantity"><input id="quantity" name="amount" style="width: 30px;height: 18px;border: 1px solid #BCBCBC;" value="1" type="text"  /></span></span></span></td>
+		
           </tr>
 
 	  <tr>
@@ -89,9 +86,8 @@
 
 <hr>
 <input type="hidden" name="bb" value=<%=@post.id%>>
-<input type="submit" value="test">
+<input type="submit" value="ADD TO CART">
 </form>
-<%=button_to 'ADD TO CART',line_items_path(:bb=>@post.id)%>
         </div><div class="col-md-1">
         </div>
         </div>

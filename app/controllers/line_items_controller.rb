@@ -34,15 +34,16 @@ class LineItemsController < ApplicationController
     @line_item.point=post.point*params[:amount].to_i
     @line_item.options=params[:option_menu]
     @line_item.qty=params[:amount]
+
     @cart.total=0
     @cart.line_items.each do |item|
-        @cart.total=@cart.total+item.price
+        @cart.total=@cart.total+item.price        
     end
-
     respond_to do |format|
       if @line_item.save
+        @cart.save
         format.html { redirect_to @line_item.cart, 
-            :notice=> 'Line item was successfully created.' }
+            :notice=> '선택하신 상품이 장바구니에 성공적으로 추가되었습니다.' }
         format.json { render json: @line_item, status: :created,
              location: @line_item }
       else
@@ -71,8 +72,14 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+    @cart=current_cart
+    @cart.total=0
+    @cart.line_items.each do |item|
+        @cart.total=@cart.total+item.price
+    end
+    @cart.save
+      respond_to do |format|
+      format.html { redirect_to @line_item.cart, notice: '선택하신 상품이 장바구니에서 성공적으로 삭제되었습니다.' }
       format.json { head :no_content }
     end
   end
