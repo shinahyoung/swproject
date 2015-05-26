@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
+  get 'comments/comments_category'
+
+  get 'comments/show'
+
+  get 'comments/write'
+
+  get 'comments/write_complete'
+
+  get 'comments/edit'
+
+  get 'comments/edit_complete'
+
   resources :line_items
   resources :carts
   get 'market/index'
+  get 'comments/index'
 
   post 'line_items/create'
   

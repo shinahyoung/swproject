@@ -41,3 +41,14 @@ u.addr="00000000000000"
 u.birth="0000-00-00"
 u.save
 
+u = Post.new
+u.id=1
+u.user_id=1
+u.category="top"
+u.title="윙크티"
+u.content="깜찍하고 예쁜 윙크 티"
+u.price="30000"
+u.point="300"
+u.qty="100"
+u.options="S\nM\nL\n"
+u.save
