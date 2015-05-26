@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'comments/write'
 
-  get 'comments/write_complete'
+  post 'comments/write_complete'
 
   get 'comments/edit'
 
