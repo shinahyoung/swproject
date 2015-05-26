@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   post 'comments/write_complete'
 
-  get 'comments/edit'
+  get 'comments/edit/:id'=>'comments#edit'
 
-  get 'comments/edit_complete'
+  post 'comments/edit_complete'
+  
+  get "comments/delete_complete/:id" =>'comments#delete_complete'
 
   resources :line_items
   resources :carts
@@ -34,7 +36,6 @@ Rails.application.routes.draw do
   get "/:category"=>'products#posts_category'
 
   get "products/show/:id"=>'products#show'
-
   get "comments/look/:id"=>'comments#look'
   get 'products/write'
 
