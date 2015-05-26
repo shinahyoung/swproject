@@ -34,7 +34,7 @@ class LineItemsController < ApplicationController
     @line_item.point=post.point*params[:amount].to_i
     @line_item.options=params[:option_menu]
     @line_item.qty=params[:amount]
-
+    @line_item.image=post.image
     @cart.total=0
     @cart.line_items.each do |item|
         @cart.total=@cart.total+item.price        

@@ -4,20 +4,43 @@
  
 <h2>안사고 뭐해</h2>
 <ul>
-<li>품명:가격:수량:포인트:옵션|삭제</li>
-  <% @cart.line_items.each do |item| %>
-      <li><%=item.post.title %>
-      :<%=item.price %>
-      :<%=item.qty%>
-      :<%=item.point%>
-      :<%=item.options%>
-      |<%=link_to '삭제',item,method: :delete, data: {confirm: '정말로 장바구니에서 삭제하시겠습니까?'} %></a>
-  </li>
-   
-        <% end %>
-        </ul>
+<% @cart.line_items.each do |item| %>
+   <img src="<%= item.image %>" style="max-width:100px;height:auto;">
+   <li><%=item.post.title %>
+   <%b=item.price.to_s.split('')%>
+   <%c=""%>
+    <%i=0%>
+    <%for d in b.reverse%>
+     <%if i%3==0&&i!=0%>
+   <%c=','+c%>
+  <%end%>
+ <%c=d+c%>
+  <%i=i+1%>
+  <%end%>
+  :<%=c=%>원
+          <%b=item.point.to_s.split('')%>
+                 <%c=""%>
+                  <%i=0%>
+                   <%for d in b.reverse%>
+                    <%if i%3==0&&i!=0%>
+                       <%c=','+c%>
+                       <%end%>
+                        <%c=d+c%>
+                    <%i=i+1%>
+                    <%end%>
+                    :<%=c=%>
+          
+:<%=item.options%>
+:<%=item.qty%>
+|<%=link_to '삭제',item,method: :delete, data: {confirm: '정말로 장바구니에서 삭제하시겠습니까?'} %>
+</li>
+<% end %>
+</ul>
 
-        <p>총 가격:
+
+
+<div>
+       <p>총 가격:
         <%b=@cart.total.to_s.split('')%>
         <%c=""%>
         <%i=0%>
@@ -30,5 +53,4 @@
         <%end%>
         <%=c=%>원
         </p>
-
-
+</div>
