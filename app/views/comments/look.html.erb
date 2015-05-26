@@ -1,0 +1,11 @@
+<p><%= flash[:alert] %></p>
+<h2>Q&A</h2>
+
+<div style="border: 1px solid #ffffff">
+  <h4>제목: <%= @comment.subject %></h4>
+  <p>이름: <%= @comment.name %></p>
+  <p>내용: <%= @comment.content %></p>
+
+  <p><a href="/comments/show">전체 리스트 가기</a></p>
+</div>
+

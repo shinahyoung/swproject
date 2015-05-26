@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   get "products/show/:id"=>'products#show'
 
+  get "comments/look/:id"=>'comments#look'
   get 'products/write'
 
   post 'products/write_complete'

@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
    @comments=Comment.all
   end
   
-  def comments
-   @comments=Comment.all
+  def look
+    @comment=Comment.find(params[:id])
   end
 
   def write
