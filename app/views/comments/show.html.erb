@@ -1,4 +1,4 @@
-<h1>Comments#show</h1>
+<h3>Q&A</h3>
 
 <table cellspacing=1 width=700 border=0>
     <tr>
@@ -22,15 +22,14 @@
         </td>
     </tr>
 
-</table>
-
-<table>
  <% if (@comments !=nil) then%>
   <% @comments.each do |comment|%>
   <tr>
-   <td><%=comment.id%></td>
-   <td><%=comment.name%></td>
-   <td><a href="/comments/look/<%=comment.id%>"><%=comment.subject%></a></td>
+   <td width=50><%=comment.id%></td>
+   <td width=100><%=comment.name%></td>
+   <td width=320><a href="/comments/look/<%=comment.id%>"><%=comment.subject%></a></td>
+  
+  <td width=100><p align=center><%=comment.created_at%></p></td>
   </tr>
   <%end%>
   <%end%>
@@ -47,4 +46,3 @@
         </td>
     </tr>
 </table>
-
