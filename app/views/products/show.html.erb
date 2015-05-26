@@ -1,6 +1,19 @@
-<form action="/line_items/create" method="post">
 
-<div class="row">
+<script type="text/javascript">
+  function addtocart(){
+  var f=document.formName;
+   f.action="/line_items/create"
+   f.submit();
+  }
+   function buy(){
+       var f=document.formName;
+       f.action="/users/buy"
+      f.submit();
+    }
+    </script>
+
+    <form name="formName" method="post">
+   <div class="row">
     <div class="col-md-1">
         </div>
             <div class="col-md-5 text-right">
@@ -86,7 +99,12 @@
 
 <hr>
 <input type="hidden" name="bb" value=<%=@post.id%>>
-<input type="submit" value="ADD TO CART">
+<input type="button" value="ADD TO CART" onclick="addtocart();">
+<input type="button" value="BUY" onclick="buy();">
+
+
+
+
 </form>
         </div><div class="col-md-1">
         </div>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  def buy
+  end
   def signup
   end
 

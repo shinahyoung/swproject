@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   get 'users/logout_complete'
 
+  post 'users/buy'
   root 'products#posts'
 
   get "/:category"=>'products#posts_category'
