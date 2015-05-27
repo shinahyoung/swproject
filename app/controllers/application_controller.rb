@@ -15,6 +15,15 @@ def login_check
     end
 end
 
+def redirect_back_or_default
+    redirect_to(session[:return_to]||"/")
+    session[:return_to]=nil
+end
+
+def store_return_to
+    session[:return_to]=request.url
+end
+
 #protect_from_forgery
 #private
 def current_cart

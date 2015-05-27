@@ -40,7 +40,9 @@ class UsersController < ApplicationController
       redirect_to :back
     else
       session[:user_id] = user.id
-      redirect_to "/"
+# redirect_to "/"
+#        redirect_back_or_default(request.referer)
+      redirect_back_or_default
     end
   end
 

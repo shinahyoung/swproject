@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    store_return_to
     @post=Post.find(params[:id])
     @user=session[:user_id]
   end

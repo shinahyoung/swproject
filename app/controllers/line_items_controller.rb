@@ -24,8 +24,9 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-
 # @line_item = LineItem.new(line_item_params)
+    if login_check
+    else
     @cart = current_cart
     post = Post.find(params[:bb])
     @line_item = @cart.line_items.build(post: post)
@@ -52,8 +53,8 @@ class LineItemsController < ApplicationController
             :status=> :unprocessable_entity }
       end
     end
-  end
-
+end
+end
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
