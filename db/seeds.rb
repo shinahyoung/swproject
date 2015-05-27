@@ -44,11 +44,29 @@ u.save
 u = Post.new
 u.id=1
 u.user_id=1
-u.category="top"
+u.category="상의"
 u.title="윙크티"
 u.content="깜찍하고 예쁜 윙크 티"
 u.price="30000"
 u.point="300"
 u.qty="100"
-u.options="S\nM\nL\n"
+u.options="S\nM\nL"
+u.image=File.open(File.join(Rails.root,'윙크티.JPG'))
 u.save
+
+u = Post.new
+u.id=2
+u.user_id=1
+u.category="상의"
+u.title="Flower blouse"
+u.content="여성스러운 블라우스"
+u.price="330000"
+u.point="330"
+u.qty="100"
+u.options="S\nM\nL\nXL"
+u.image=File.open(File.join(Rails.root,'flowerblouse.JPG'))
+u.save
+
+
+
+

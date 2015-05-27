@@ -10,9 +10,15 @@
  <p style="color: #ff0000">
 
 <table width=700 border=1 cellspacing=0 cellpadding=5>
-<tr><td><b>이름</b></td><td><input type=text name=comment_name size=50  maxlength=50></td></tr>
+<tr><td><b>이름</b></td><td><input type=text name=comment_name  class="MS_input_txt input_style" size=50  maxlength=50></td></tr>
 <tr><td><b>제목</b></td><td><input type=text name=comment_subject size=50  maxlength=50></td></tr>
 <tr><td><b>내용</b></td><td><textarea name=comment_content cols=50 rows=10></textarea></td></tr>
+<tr>
+ <th><div><p>사진 업로드 : <input type="file" name="image"></p></div></th>
+ <td colspan="3">
+ <div> </div>
+ </td>
+</tr>
 </form>
 </table>
 
@@ -20,6 +26,7 @@
 <tr><td>
 
 <input class="btn btn-lg btn-block" type="submit" value="등록">
+
 </form>
 </td></tr>
 </table>

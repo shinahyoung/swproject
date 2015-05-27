@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
    comment.subject =params[:comment_subject]
    comment.user_id=session[:user_id]
    comment.hits= params[:comment_hits]
-
+   comment.image=params[:image]
    if comment.save
       flash[:alert] ="저장되었습니다."
       redirect_to "/comments/show/"
@@ -34,8 +34,12 @@ class CommentsController < ApplicationController
 
   def edit
    @comment = Comment.find(params[:id])
+    if @comment.user_id!= session[:user_id]
+        flash[:alert]= "수정 권한이 없습니다."
+        redirect_to :back
+    end 
   end
-
+ 
 
   def edit_complete
    comment=Comment.find(params[:id])
@@ -55,10 +59,18 @@ class CommentsController < ApplicationController
   end
 
  def delete_complete
-  comment=Comment.find(params[:id])
-  comment.destroy
-  flash[:alert] ="삭제되었습니다!"
-  redirect_to "/comments/show"
+  @comment=Comment.find(params[:id])
+  if @comment.user_id== session[:user_id]
+    @comment.destroy
+    flash[:alert] ="삭제되었습니다!"
+    redirect_to "/comments/show"
+  else
+   flash[:alert]="삭제 권한이 없습니다!"
+   redirect_to "/comments/look/#{@comment.id}"
+
+  end
+ 
  
  end
+
 end
