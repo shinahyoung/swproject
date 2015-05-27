@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
     store_return_to
     @post=Post.find(params[:id])
     @user=session[:user_id]
+    @review=User.find(session[:user_id])	
   end
 
   def write_complete
@@ -79,7 +80,7 @@ class ProductsController < ApplicationController
       redirect_to "/products/show/#{post.id}"
    else
       flash[:alert] = post.errors.values.flatten.join(' ')
-      edirect_to :back
+      redirect_to :back
    end
   
   end
@@ -97,10 +98,14 @@ class ProductsController < ApplicationController
    review.content= params[:review_content]
    review.save
   
+  if review.save
    flash[:alert] ="새 댓글을 달았습니다."
    redirect_to "/products/show/#{review.post_id}"
+  else
+   flash[:alert] = review.errors.values.flatten.join(' ')
+   redirect_to :back
   end
-
+ end
   def delete_review_complete
     review= Review.find(params[:id])
     review.destroy
