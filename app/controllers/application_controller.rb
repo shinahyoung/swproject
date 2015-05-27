@@ -20,6 +20,7 @@ def login_check2
     redirect_to "/users/login"
   end
 end
+
 def redirect_back_or_default
     redirect_to(session[:return_to]||"/")
     session[:return_to]=nil
@@ -37,8 +38,7 @@ def current_cart
         cart = Cart.create 
 session[:cart_id] = session[:user_id] 
        cart
+    end
 end
 
 
-
-end

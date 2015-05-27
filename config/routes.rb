@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'buys/write'
+
+  post 'buys/write_complete'
+
   get 'comments/comments_category'
 
   get 'comments/show'

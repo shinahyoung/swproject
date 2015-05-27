@@ -1,0 +1,22 @@
+<p><%= flash[:alert] %></p>
+<h1>주문하기</h1>
+
+<form action="/buys/write_complete" method="post">
+<h3>결제수단선택</h3>
+<p>결제방식: 사이버머니</p>
+  <p>상품합계금액: <%=@cart.total%>원</p>
+  <p>배송료: 0원 </p>
+  <p>총결제금액: <%=@cart.total%>원</p>
+  <hr>
+  <h3>주문자정보</h3>
+  <p>주문하시는분: <input class="form-input" type="text" name="toname" value="<%=@user.name%>"></p>
+  <p>전화번호: <input class="form-input" type="text" name="tophone" value="<%=@user.phone%>"> </p>
+  <hr>
+  <h3>배송지정보</h3>
+  <p>받으시는 분 <input type="text" name="fromname" placeholder="받는이의 이름을 입력하세요."></p>
+  <p>연락처 <input type="text" name="fromphone" placeholder="연락처를 입력하세요."></p>
+  <p>주소 <input type="text" name="fromaddr" placeholder="주소를 입력하세요"></p>
+  <p>배송메모 <input type="textarea" name="memo" placeholder="배송 메모를 입력하세요"></p>
+  <input type="submit" value="결제하기">
+</form>
+

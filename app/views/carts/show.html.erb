@@ -1,11 +1,12 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
- 
+<form action="/buys/write" method="post">
 <h2>안사고 뭐해</h2>
 <ul>
 <% @cart.line_items.each do |item| %>
-   <img src="<%= item.image %>" style="max-width:100px;height:auto;">
+<input type="checkbox" name="chk_info" value="<%=item.post.title%>">
+<img src="<%= item.image %>" style="max-width:100px;height:auto;">
    <li><%=item.post.title %>
    <%b=item.price.to_s.split('')%>
    <%c=""%>
@@ -36,6 +37,9 @@
 </li>
 <% end %>
 </ul>
+
+<input type="submit" value="BUY">
+
 
 
 
