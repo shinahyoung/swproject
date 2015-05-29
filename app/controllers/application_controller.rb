@@ -15,6 +15,11 @@ def login_check
     end
 end
 
+def login_check2
+  if session[:user_id].nil?
+    redirect_to "/users/login"
+  end
+end
 def redirect_back_or_default
     redirect_to(session[:return_to]||"/")
     session[:return_to]=nil

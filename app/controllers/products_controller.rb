@@ -90,4 +90,21 @@ class ProductsController < ApplicationController
    flash[:alert] = "삭제되었습니다."
    redirect_to "/"
   end
+
+  def write_review_complete
+   review = Review.new
+   review.post_id=params[:post_id]
+   review.content= params[:review_content]
+   review.save
+  
+   flash[:alert] ="새 댓글을 달았습니다."
+   redirect_to "/products/show/#{review.post_id}"
+  end
+
+  def delete_review_complete
+    review= Review.find(params[:id])
+    review.destroy
+   flash[:alert] ="댓글이 삭제되었습니다."
+   redirect_to "/products/show/#{review.post_id}"
+  end
 end

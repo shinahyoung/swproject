@@ -25,7 +25,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
 # @line_item = LineItem.new(line_item_params)
-    if login_check
+    if login_check2
     else
     @cart = current_cart
     post = Post.find(params[:bb])
