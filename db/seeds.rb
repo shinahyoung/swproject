@@ -67,6 +67,86 @@ u.options="S\nM\nL\nXL"
 u.image=File.open(File.join(Rails.root,'flowerblouse.JPG'))
 u.save
 
+u = Post.new
+u.id=3
+u.user_id=1
+u.category="아우터"
+u.title="스웨츠 자켓"
+u.content="시크한 카키 자켓"
+u.price="100000"
+u.point="100"
+u.qty="100"
+u.options="Free"
+u.image=File.open(File.join(Rails.root,'jacket.JPG'))
+u.save
+
+u = Post.new
+u.id=4
+u.user_id=1
+u.category="하의"
+u.title="핫 팬츠"
+u.content="블루 사파이어 핫팬츠"
+u.price="28000"
+u.point="280"
+u.qty="100"
+u.options="25\n26\n27\n28\n29\n30"
+u.image=File.open(File.join(Rails.root,'블루사파이어.JPG'))
+u.save
+
+u = Post.new
+u.id=5
+u.user_id=1
+u.category="드레스"
+u.title="Casual Dress"
+u.content="캐주얼한 오리 드레스"
+u.price="20000"
+u.point="200"
+u.qty="100"
+u.options="Free"
+u.image=File.open(File.join(Rails.root,'오리드레스.JPG'))
+u.save
+
+u = Post.new
+u.id=6
+u.user_id=1
+u.category="악세사리"
+u.title="Sun glass"
+u.content="실용성이 좋아요~!"
+u.price="15000"
+u.point="150"
+u.qty="100"
+u.options="W\nM"
+u.image=File.open(File.join(Rails.root,'sunglass.JPG'))
+u.save
+
+u = Post.new
+u.id=7
+u.user_id=1
+u.category="하의"
+u.title="Rose dress"
+u.content="장미 치마. 여성스러움이 강조돼요^^"
+u.price="40000"
+u.point="400"
+u.qty="100"
+u.options="S\nM\nL"
+u.image=File.open(File.join(Rails.root,'bottom1.JPG'))
+u.save
+
+u = Post.new
+u.id=8
+u.user_id=1
+u.category="아우터"
+u.title="필립 자켓"
+u.content="직장인들이 입기 좋아요."
+u.price="50000"
+u.point="500"
+u.qty="100"
+u.options="S\nM\nL"
+u.image=File.open(File.join(Rails.root,'필립자켓.JPG'))
+u.save
+
+
+
 
 
 
