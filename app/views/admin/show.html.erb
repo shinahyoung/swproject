@@ -1,8 +1,25 @@
-<h2>User</h2>
+<div class="panel panel-default">
+
+<div class="panel-heading">User management</div>
+
+<table class="table">
+<tr>
+<td>번호</td>
+<td>이름</td>
+<td>아이디</td>
+<td>생년월일</td>
+<td>주소</td>
+<td>연락처</td>
+<td>이메일</td>
+</tr>
+<tr>
 <% @users.reverse.each do |user|%>
-<%=user.name%><%=user.id %><%=user.username%><%=user.birth%><%=user.addr%><%=user.phone%>
-<%=user.email%>
+<td><%=user.id%></td><td><%=user.name %></td><td><%=user.username%></td>
+<td><%=user.birth%></td><td><%=user.addr%></td><td><%=user.phone%></td>
+<td><%=user.email%></td>
 <p></p>
 
+</tr>
 <%end%>
-
+</table>
+</div>
