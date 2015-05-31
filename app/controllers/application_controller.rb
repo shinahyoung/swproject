@@ -6,6 +6,7 @@ def rowsPerPage
  @rowsPerPage ||= 2
 end
 
+
 def login_check
     @current_user = nil
     if !session[:user_id].nil?

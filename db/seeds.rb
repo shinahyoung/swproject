@@ -26,19 +26,29 @@ u.id=1
 u.username = "admin"
 u.password = "111111"
 u.name="administrator"
-u.phone="000-0000-0000"
-u.addr="00000000000000"
-u.birth="0000-00-00"
+u.phone="012-3456-789"
+u.addr="서울시 노원구 월계동"
+u.birth="1999-01-15"
 u.save
 
 u = User.new
 u.id=2
 u.username = "guest1"
 u.password = "111111"
-u.name="guest1"
-u.phone="000-0000-0000"
-u.addr="00000000000000"
-u.birth="0000-00-00"
+u.name="신아영"
+u.phone="010-1234-9999"
+u.addr="서울시 양천구"
+u.birth="1999-03-22"
+u.save
+
+u = User.new
+u.id=3
+u.username = "guest2"
+u.password = "111111"
+u.name="조민경"
+u.phone="010-3115-0000"
+u.addr="서울시 마포구"
+u.birth="1999-01-01"
 u.save
 
 u = Post.new

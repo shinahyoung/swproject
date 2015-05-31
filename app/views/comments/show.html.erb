@@ -1,5 +1,5 @@
-<h3>Q&A</h3>
-
+<div class="col-md-3">
+<h4>Q&A</h4>
 <table cellspacing=1 width=700 border=0>
     <tr>
         <td>총 게시물수: <%= @totalCnt %></td>
@@ -8,13 +8,13 @@
     </tr>
 </table>
 
-<table cellspacing=1 width=700 border=1>
-    <tr>
+<table cellspacing=1 width=700 border=1 bgcolor="#CCFFCC">
+    <tr bgcolor="#CCFFCC">
         <td width=50><p align=center>번호</p>
         </td>
         <td width=50><p align=center>이미지</p>
         </td>
-        <td width=100><p align=center>이름</p>
+        <td width=80><p align=center>이름</p>
         </td>
         <td width=320><p align=center>제목</p>
         </td>
@@ -26,13 +26,14 @@
 
  <% if (@comments !=nil) then%>
   <% @comments.each do |comment|%>
+
   <tr>
-   <td width=50><%=comment.id%></td>
-   <td width=50><img src="<%=comment.image_url(:thumb)%>"></td>
-   <td width=100><%=comment.name%></td>
-   <td width=320><a href="/comments/look/<%=comment.id%>"><%=comment.subject%></a></td>
+   <td width=50><p align=center><%=comment.id%></td>
+   <td width=50><p align=center><img src="<%=comment.image_url(:thumb)%>"></td>
+   <td width=80><p align=center><%=comment.name%></td>
+   <td width=320><p align=center><a href="/comments/look/<%=comment.id%>"><%=comment.subject%></a></td>
   
-  <td width=100><p align=center><%=comment.created_at%></p></td>
+  <td width=100><p align=center><p align=center><%=comment.created_at%></p></td>
   </tr>
   <%end%>
   <%end%>
@@ -49,3 +50,4 @@
         </td>
     </tr>
 </table>
+</div>

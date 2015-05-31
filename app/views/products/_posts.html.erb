@@ -1,14 +1,14 @@
 <% @posts.reverse.each do |post| %>
-<div class="panel"> <div class="row panel-body"><div class="col-md-3">
-</div>
-<div class="col-md-3 text-right">
-<img src="<%= post.image_url(:thumb) %>">
-</div>
-<div class="col-md-6">
+<div class="panel-body">
+<div class="col-md-3 text-left">
+<div height=200dp wdith=100dp>
+<a href="/products/show/<%= post.id %>"><img src="<%= post.image_url(:thumb) %>"></a>
+<hr>
 <span class="label label-warning"><%= post.category %></span>
 <a href="/products/show/<%= post.id %>"><%= post.title %></a> [<%= post.reviews.count %>]
-<hr><p><%= post.content =%></p>
+<p></p><%= post.content =%>
+<hr>
 </div>
 </div>
 </div>
-        <% end %>
+<% end %>
