@@ -29,7 +29,12 @@ class ProductsController < ApplicationController
     store_return_to
     @post=Post.find(params[:id])
     @user=session[:user_id]
-    @review=User.find(session[:user_id])	
+ 
+   if(!@user.nil?) 
+   @review=User.find(session[:user_id])	
+   else 
+   @review=Review.all
+   end
   end
 
   def write_complete
