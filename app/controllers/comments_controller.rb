@@ -47,6 +47,7 @@ class CommentsController < ApplicationController
    comment.name= params[:comment_name]
    comment.subject =params[:comment_subject]
    comment.user_id=session[:user_id]
+   comment.image=params[:image]
    comment.hits= params[:comment_hits]
 
    if comment.save
