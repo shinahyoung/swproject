@@ -6,6 +6,10 @@ def rowsPerPage
  @rowsPerPage ||= 2
 end
 
+def hh
+  @hh=User.find(session[:user_id])
+
+end
 
 def login_check
     @current_user = nil
