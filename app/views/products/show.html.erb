@@ -105,10 +105,12 @@
 
 
 </form>
-        </div><div class="col-md-1">
-        </div>
-        </div>
+</div><div class="col-md-1">
+</div>
+</div>
 <p><%= flash[:alert] %></p>
+
+<div class="col-md-3"></div>
 <hr>
 <% @post.reviews.each do |review|%>
 <p><strong><%=@review.name%></strong> <%=review.content %> | <a href="/products/delete_review_complete/<%=review.id %>">삭제</a></p>
