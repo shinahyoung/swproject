@@ -1,5 +1,6 @@
-<div class="panel panel-default">
-
+<div class="col-md-2">
+</div>
+<div class="panel panel-info" width="100" >
 <div class="panel-heading">User management</div>
 
 <table class="table">
@@ -13,12 +14,15 @@
 <td>이메일</td>
 </tr>
 <tr>
-<% @users.reverse.each do |user|%>
+<% @users.each do |user|%>
 <td><%=user.id%></td><td><%=user.name %></td><td><%=user.username%></td>
 <td><%=user.birth%></td><td><%=user.addr%></td><td><%=user.phone%></td>
 <td><%=user.email%></td>
-<p></p>
-
+<td>
+<%if user.id!=1%>
+<a href="/admin/delete_user/<%=user.id%>">삭제</a>
+<%end%>
+</td>
 </tr>
 <%end%>
 </table>

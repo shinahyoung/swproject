@@ -2,7 +2,7 @@
 
 
 <h1>주문하기</h1>
-
+<p><%=params[:chk_info]%></p>
 <form action="/buys/write_complete" method="post">
 <ul>
 <% @buy.line_items.each do |item| %>

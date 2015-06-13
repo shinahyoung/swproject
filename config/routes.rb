@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/show'
 
-  get 'admin/delete_user'
+  get 'admin/delete_user/:id'=>'admin#delete_user'
 
   post 'buys/write'
 

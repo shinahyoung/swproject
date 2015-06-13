@@ -1,6 +1,14 @@
 <div class="container">
-   <h1 class="title"><a class="title-link" href="/">쇼핑몰</a></h1>
+<div style="text-align:right">
+
+<%if !session[:user_id].nil?%>
+<%hh=User.find(session[:user_id])%>
+<b><%=hh.name%></b>님 환영합니다!
+<%end%>
 </div>
+<br><br>
+<h1 class="title"><a class="title-link" href="/"></a></h1>
+  <div align="center"><p><img src="draw1.png" width="450" height="160"   alt=""></p></div></div>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
