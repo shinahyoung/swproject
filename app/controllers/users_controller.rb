@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   user.addr=params[:addr]
   user.email=params[:email]
   user.birth=params[:birth]
+  user.money=0
+  user.point=0
   if params[:password] == params[:retype_password]
      user.password = params[:password]
      if user.save

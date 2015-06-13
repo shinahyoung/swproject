@@ -2,69 +2,83 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<% tprice=0 %>
+<% tqty=0 %>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="checkbox"]').click(function(){
+               var q=parseInt($('#total_qty').text().split(' ')[2]);
+               var p=parseInt($('#total_price').text().split(' ')[2]);
+                var tok=$(this).attr("value").split('/');
+                var ip=parseInt(tok[3]);
+                var iq=parseInt(tok[2]);
+              alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
+                    if($(this).prop("checked")==true){
+                        p=p+ip;q=q+iq;
+                        $('#total_qty').text("총 선택: "+q+" 개");//$(this).attr("value"));
+                        $('#total_price').text("총 가격: "+p+" 원");
+                    }else{
+                        p=p-ip;q=q-iq;
+                        $('#total_qty').text("총 선택: "+q+" 개");
+                        $('#total_price').text("총 가격: "+p+" 원");
+                    }
+                });
+        }); 
+    </script>
 
-<form action="/buys/write" method="post">
+<script type="text/javascript">
+
+function checkbuy(){
+    var count=0;
+    var c=document.getElementsByTagName('input');
+    for(var i=0;i<c.length;i++){
+        var el=c[i];
+        if(el.type=='checkbox' &&el.checked)
+            count++;
+    }
+    if(count==0)
+        alert("구매할 상품을 선택해주세요");
+    else
+        document.myForm.submit();
+}
+</script>
 
 
-<h2>안사고 뭐해</h2>
+
+<form name="myForm" action="/buys/write" method="post">
+
+<h2>장바구니</h2>
 <ul>
-<% ii=0 %>
+
 <% @cart.line_items.each do |item| %>
-<% ii=ii+1 %>
-<!--
-<input type="checkbox" name="chk_info" value="<%=item.post.title%>">
---!>
-<%=check_box("p","v")=%>
-<img src="<%= item.image %>" style="max-width:100px;height:auto;">
+
+    <%=check_box("product","commands",{:checked => true}, item.post.title+"/"+item.options+"/"+item.qty.to_s+"/"+item.price.to_s, nil)=%>
+    <img src="<%= item.image %>" style="max-width:100px;height:auto;">
    <li><%=item.post.title %>
-   <%b=item.price.to_s.split('')%>
-   <%c=""%>
-    <%i=0%>
-    <%for d in b.reverse%>
-     <%if i%3==0&&i!=0%>
-   <%c=','+c%>
-  <%end%>
- <%c=d+c%>
-  <%i=i+1%>
-  <%end%>
+   <%b=item.price.to_s.split('')%><%c=""%>  <%i=0%> 
+   <%for d in b.reverse%>   
+    <%if i%3==0&&i!=0%>  <%c=','+c%>  <%end%>
+   <%c=d+c%>  <%i=i+1%>  <%end%>
   :<%=c=%>원
-          <%b=item.point.to_s.split('')%>
-                 <%c=""%>
-                  <%i=0%>
+          <%b=item.point.to_s.split('')%>   <%c=""%>  <%i=0%>
                    <%for d in b.reverse%>
-                    <%if i%3==0&&i!=0%>
-                       <%c=','+c%>
-                       <%end%>
-                        <%c=d+c%>
-                    <%i=i+1%>
+                     <%if i%3==0&&i!=0%>  <%c=','+c%>   <%end%>
+                        <%c=d+c%>   <%i=i+1%>
                     <%end%>
-                    :<%=c=%>
-          
+ :<%=c=%>         
 :<%=item.options%>
 :<%=item.qty%>
 |<%=link_to '삭제',item,method: :delete, data: {confirm: '정말로 장바구니에서 삭제하시겠습니까?'} %>
 </li>
-<% end %>
+<%tqty=tqty+item.qty%>
+<%tprice=tprice+item.price%>
+
+<%end%>
 </ul>
-
-<input type="submit" value="BUY">
-<p>아오 시벌:<%=ii=%></p>
-
+<input type="button" value="BUY" onclick="checkbuy();">
+<p id="total_qty">총 선택: <%=tqty%> 개</p>
+<p id="total_price">총 가격: <%=tprice%> 원</p>
 </form>
 
 
-<div>
-       <p>총 가격:
-        <%b=@cart.total.to_s.split('')%>
-        <%c=""%>
-        <%i=0%>
-        <%for d in b.reverse%>
-        <%if i%3==0&&i!=0%>
-        <%c=','+c%>
-        <%end%>
-        <%c=d+c%>
-        <%i=i+1%>
-        <%end%>
-        <%=c=%>원
-        </p>
-</div>

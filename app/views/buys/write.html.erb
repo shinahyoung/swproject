@@ -5,7 +5,10 @@
 <p><%=params[:chk_info]%></p>
 <form action="/buys/write_complete" method="post">
 <ul>
+
 <% @buy.line_items.each do |item| %>
+
+<input type= "hidden" name="check_d[]" value= "<%=item.post.title+"/"+item.options+"/"+item.qty.to_s%>" >
    <li> 
  <img src="<%= item.image %>" style="max-width:100px;height:auto;">
     <li><%=item.post.title %>
@@ -39,15 +42,23 @@
    </li>
    <%end%>
    </ul>
-   <p>총 금액: <%=@total=%></p>
-   <p>토큰 : <%=@tok=%></p>
-   <p>선택: <%=@chk=%></p> 
+  <%b=@total.to_s.split('')%>
+          <%c=""%>
+              <%i=0%>
+               <%for d in b.reverse%>
+               <%if i%3==0&&i!=0%>
+              <%c=','+c%>
+              <%end%>
+               <%c=d+c%>
+                <%i=i+1%>
+                <%end%>
+   <p>총 금액: <%=c=%></p> 
 <hr>
 <h3>결제수단선택</h3>
 <p>결제방식: 사이버머니</p>
-  <p>상품합계금액: 원</p>
+  <p>상품합계금액: <%=c=%>원</p>
   <p>배송료: 0원 </p>
-  <p>총결제금액: 원</p>
+  <p>총결제금액: <%=c=%> 원</p>
   <hr>
   <h3>주문자정보</h3>
   <p>주문하시는분: <input class="form-input" type="text" name="toname" value="<%=@user.name%>"></p>

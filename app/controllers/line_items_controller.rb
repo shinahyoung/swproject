@@ -29,17 +29,28 @@ class LineItemsController < ApplicationController
     else
     @cart = current_cart
     post = Post.find(params[:bb])
-    @line_item = @cart.line_items.build(post: post)
-    @line_item.options=params[:option_menu]
-    @line_item.price=post.price*params[:amount].to_i
-    @line_item.point=post.point*params[:amount].to_i
-    @line_item.options=params[:option_menu]
-    @line_item.qty=params[:amount]
-    @line_item.image=post.image
-    @cart.total=0
-    @cart.line_items.each do |item|
-        @cart.total=@cart.total+item.price        
+    check=0
+    for item in @cart.line_items.each
+        if item.post.title == post.title && item.options == params[:option_menu]
+            @line_item=item
+            @line_item.qty=@line_item.qty+params[:amount].to_i
+            @line_item.price=@line_item.price+params[:amount].to_i*post.price
+            @line_item.point=@line_item.point+params[:amount].to_i*post.point
+            check=1
+            break
+        end
     end
+
+    if check==0
+            @line_item = @cart.line_items.build(post: post)
+            @line_item.options=params[:option_menu]
+            @line_item.price=post.price*params[:amount].to_i
+            @line_item.point=post.point*params[:amount].to_i
+            @line_item.options=params[:option_menu]
+            @line_item.qty=params[:amount]
+            @line_item.image=post.image
+    end
+
     respond_to do |format|
       if @line_item.save
         @cart.save
@@ -76,12 +87,6 @@ end
   # DELETE /line_items/1.json
   def destroy
     @line_item.destroy
-    @cart=current_cart
-    @cart.total=0
-    @cart.line_items.each do |item|
-        @cart.total=@cart.total+item.price
-    end
-    @cart.save
       respond_to do |format|
       format.html { redirect_to @line_item.cart, notice: '선택하신 상품이 장바구니에서 성공적으로 삭제되었습니다.' }
       format.json { head :no_content }

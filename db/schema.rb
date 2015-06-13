@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20150529081055) do
     t.string   "addr"
     t.string   "phone"
     t.string   "email"
+    t.integer  "point"
+    t.integer  "money"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

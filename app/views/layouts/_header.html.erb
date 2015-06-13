@@ -4,6 +4,8 @@
 <%if !session[:user_id].nil?%>
 <%hh=User.find(session[:user_id])%>
 <b><%=hh.name%></b>님 환영합니다!
+<p><%=hh.point%> point</p>
+<p><%=hh.money%> 원</p>
 <%end%>
 </div>
 <br><br>

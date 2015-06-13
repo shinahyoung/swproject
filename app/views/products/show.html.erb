@@ -2,13 +2,21 @@
 <script type="text/javascript">
   function addtocart(){
   var f=document.formName;
+  if (f.option_menu.value=="")
+      alert("옵션을 선택하세요");
+  else{
    f.action="/line_items/create"
    f.submit();
   }
+  }
    function buy(){
        var f=document.formName;
+       if(f.option_menu.value=="")
+           alert("옵션을 선택하세요");
+       else{
        f.action="/users/buy"
-      f.submit();
+       f.submit();
+       }
     }
     </script>
 

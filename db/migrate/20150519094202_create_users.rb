@@ -8,7 +8,9 @@ class CreateUsers < ActiveRecord::Migration
         t.string    :addr
         t.string    :phone
         t.string    :email
-      t.timestamps null: false
+        t.integer   :point
+        t.integer   :money
+        t.timestamps null: false
     end
   end
 end

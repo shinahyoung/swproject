@@ -9,4 +9,7 @@ class Buy < ActiveRecord::Base
     validates :addr, :presence => {:message => "배송지 주소를 반드시 입력하셔야 합니다."}
     validates :phone, :presence => {:message => "연락처를 반드시 입력하셔야 합니다."}
 
+    def commands=(commands)
+        commands.reject(&:blank?)
+    end
 end

@@ -29,6 +29,8 @@ u.name="administrator"
 u.phone="012-3456-789"
 u.addr="서울시 노원구 월계동"
 u.birth="1999-01-15"
+u.point=0
+u.money=0
 u.save
 
 u = User.new
@@ -39,6 +41,8 @@ u.name="신아영"
 u.phone="010-1234-9999"
 u.addr="서울시 양천구"
 u.birth="1999-03-22"
+u.money=0
+u.point=0
 u.save
 
 u = User.new
@@ -49,6 +53,8 @@ u.name="조민경"
 u.phone="010-3115-0000"
 u.addr="서울시 마포구"
 u.birth="1999-01-01"
+u.money=0
+u.point=0
 u.save
 
 u = Post.new
