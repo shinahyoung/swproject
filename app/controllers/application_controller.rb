@@ -41,7 +41,7 @@ def current_cart
     Cart.find(session[:user_id])
     rescue ActiveRecord::RecordNotFound 
         cart = Cart.create 
-session[:cart_id] = session[:user_id] 
+        session[:cart_id] = session[:user_id] 
        cart
     end
 end

@@ -32,10 +32,29 @@ class BuysController < ApplicationController
   def write_complete
    cart=current_cart
    user=User.find(session[:user_id])
+   
    for item in cart.line_items.each
       for select in params[:check_d]
         tok=select.split("/")
         if item.post.title==tok[0] && item.options ==tok[1] &&item.qty.to_s==tok[2]
+            @buy=Buy.new
+            @buy.user_id=session[:user_id]
+            @buy.image=item.image
+            @buy.price=item.price
+            @buy.qty=item.qty
+            @buy.title=item.post.title
+            @buy.option=item.options
+            @buy.point=item.point
+            @buy.fromname=params[:fromname]
+            @buy.fromphone=params[:fromphone]
+            @buy.toname=params[:toname]
+            @buy.tophone=params[:tophone]
+            @buy.toaddr=params[:toaddr]
+            @buy.memo=params[:memo]
+            @buy.save
+            post=Post.find(item.post.id)
+            post.qty=post.qty-item.qty
+            post.save
             user.point=user.point+item.point
             user.money=user.money-item.price
             item.delete

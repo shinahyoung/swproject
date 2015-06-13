@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(version: 20150529081055) do
 
   create_table "buys", force: :cascade do |t|
+    t.string   "user_id"
     t.string   "image"
-    t.integer  "buy_id"
-    t.integer  "post_id"
     t.integer  "point"
     t.integer  "price"
     t.integer  "qty"
     t.text     "option"
-    t.integer  "user_id"
-    t.string   "addr"
-    t.string   "phone"
+    t.string   "title"
+    t.string   "fromname"
+    t.string   "fromphone"
+    t.string   "toname"
+    t.string   "tophone"
+    t.string   "toaddr"
     t.text     "memo"
-    t.string   "from"
-    t.string   "to"
     t.integer  "total_price"
     t.integer  "total_point"
     t.datetime "created_at",  null: false

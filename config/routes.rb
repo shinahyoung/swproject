@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 #  get 'admin/show'
   get "carts/:id/show" => 'carts#show'
 
+  get 'admin/show'
+
   get 'admin/delete_user/:id'=>'admin#delete_user'
 
   post 'buys/write'
