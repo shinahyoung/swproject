@@ -78,7 +78,12 @@ function checkbuy(){
 </ul>
 <input type="button" value="BUY" onclick="checkbuy();">
 <p id="total_qty">총 선택: <%=tqty%> 개</p>
-<p id="total_price">총 가격: <%=tprice%> 원</p>
+<%b=tprice.to_s.split('')%>   <%c=""%>  <%i=0%>
+     <%for d in b.reverse%>
+     <%if i%3==0&&i!=0%>  <%c=','+c%>   <%end%>
+      <%c=d+c%>   <%i=i+1%>
+     <%end%>
+<p id="total_price">총 가격: <%=c%> 원</p>
 </form>
 
 

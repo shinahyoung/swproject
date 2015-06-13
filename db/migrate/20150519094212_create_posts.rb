@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration
     t.integer    :price
     t.integer    :point
     t.integer   :qty
+    t.string    :select_opt
     t.text  :options
     t.timestamps null: false
     end

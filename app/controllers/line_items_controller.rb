@@ -30,8 +30,9 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     post = Post.find(params[:bb])
     check=0
+    opt=params[:option_menu].split("|"); 
     for item in @cart.line_items.each
-        if item.post.title == post.title && item.options == params[:option_menu]
+        if item.post.title == post.title && item.options == opt[0]
             @line_item=item
             @line_item.qty=@line_item.qty+params[:amount].to_i
             @line_item.price=@line_item.price+params[:amount].to_i*post.price
@@ -43,10 +44,9 @@ class LineItemsController < ApplicationController
 
     if check==0
             @line_item = @cart.line_items.build(post: post)
-            @line_item.options=params[:option_menu]
+            @line_item.options=opt[0]
             @line_item.price=post.price*params[:amount].to_i
             @line_item.point=post.point*params[:amount].to_i
-            @line_item.options=params[:option_menu]
             @line_item.qty=params[:amount]
             @line_item.image=post.image
     end

@@ -5,17 +5,28 @@
   if (f.option_menu.value=="")
       alert("옵션을 선택하세요");
   else{
-   f.action="/line_items/create"
-   f.submit();
+      var tok=f.option_menu.value.split('|');
+      if(parseInt(tok[1])<parseInt(f.amount.value))
+              alert("재고가 부족합니다");
+      else{
+         f.action="/line_items/create"
+         f.submit();
+      }
+   }
   }
-  }
+ 
    function buy(){
        var f=document.formName;
        if(f.option_menu.value=="")
            alert("옵션을 선택하세요");
        else{
-       f.action="/users/buy"
-       f.submit();
+           var tok=f.option_menu.value.split('|');
+           if(parseInt(tok[1])<parseInt(f.amount.value))
+               alert("재고가 부족합니다");
+           else{
+                f.action="/users/buy"
+                f.submit();
+           }
        }
     }
     </script>
@@ -74,7 +85,7 @@
             <select name="option_menu">
             <option value="">--옵션선택--</option>
             <% for a in @post.options.split("\n")%>
-            <option value="<%=a%>"><%=a=%></option>
+            <option value="<%=a%>"><%=a=%>개 남음</option>
             <%end%>
             </select>
             

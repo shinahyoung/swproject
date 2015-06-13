@@ -47,7 +47,6 @@ class ProductsController < ApplicationController
         post.price=params[:post_price]
         post.point=params[:post_point]
         post.options=params[:post_option]
-        post.qty=params[:post_qty]
 
         if post.save
            flash[:alert] = "저장되었습니다."

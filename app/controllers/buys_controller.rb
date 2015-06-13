@@ -53,7 +53,19 @@ class BuysController < ApplicationController
             @buy.memo=params[:memo]
             @buy.save
             post=Post.find(item.post.id)
-            post.qty=post.qty-item.qty
+            tmp1=post.options.split("\n")
+            @tmp2=""
+            for tmp3 in tmp1
+                tmp4=tmp3.split("|")
+                if tmp4[0]==item.options
+                    tmp5=tmp4[1].to_i-item.qty
+                    @tmp2=@tmp2+tmp4[0]+"|"+tmp5.to_s+"\n"
+                else
+                    @tmp2=@tmp2+tmp4[0]+"|"+tmp4[1]+"\n"
+                end 
+            end
+            
+            post.options=@tmp2
             post.save
             user.point=user.point+item.point
             user.money=user.money-item.price

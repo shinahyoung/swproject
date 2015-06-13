@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150529081055) do
     t.integer  "price"
     t.integer  "point"
     t.integer  "qty"
+    t.string   "select_opt"
     t.text     "options"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

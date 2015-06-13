@@ -66,7 +66,7 @@ u.content="깜찍하고 예쁜 윙크 티"
 u.price="30000"
 u.point="300"
 u.qty="100"
-u.options="S\nM\nL"
+u.options="S|30\nM|30\nL|100"
 u.image=File.open(File.join(Rails.root,'윙크티.JPG'))
 u.save
 
@@ -79,7 +79,7 @@ u.content="여성스러운 블라우스"
 u.price="33000"
 u.point="330"
 u.qty="100"
-u.options="S\nM\nL\nXL"
+u.options="S|100\nM|100\nL|100\nXL|100"
 u.image=File.open(File.join(Rails.root,'flowerblouse.JPG'))
 u.save
 
@@ -92,7 +92,7 @@ u.content="시크한 카키 자켓"
 u.price="100000"
 u.point="100"
 u.qty="100"
-u.options="Free"
+u.options="Free|100"
 u.image=File.open(File.join(Rails.root,'jacket.JPG'))
 u.save
 
@@ -105,7 +105,7 @@ u.content="블루 사파이어 핫팬츠"
 u.price="28000"
 u.point="280"
 u.qty="100"
-u.options="25\n26\n27\n28\n29\n30"
+u.options="25|100\n26|100\n27|100\n28|100\n29|100\n30|100"
 u.image=File.open(File.join(Rails.root,'블루사파이어.JPG'))
 u.save
 
@@ -118,7 +118,7 @@ u.content="캐주얼한 오리 드레스"
 u.price="20000"
 u.point="200"
 u.qty="100"
-u.options="Free"
+u.options="Free|100"
 u.image=File.open(File.join(Rails.root,'오리드레스.JPG'))
 u.save
 
@@ -131,7 +131,7 @@ u.content="실용성이 좋아요~!"
 u.price="15000"
 u.point="150"
 u.qty="100"
-u.options="W\nM"
+u.options="W|100\nM|100"
 u.image=File.open(File.join(Rails.root,'sunglass.JPG'))
 u.save
 
@@ -144,7 +144,7 @@ u.content="장미 치마. 여성스러움이 강조돼요^^"
 u.price="40000"
 u.point="400"
 u.qty="100"
-u.options="S\nM\nL"
+u.options="S|100\nM|100\nL|100"
 u.image=File.open(File.join(Rails.root,'bottom1.JPG'))
 u.save
 
@@ -157,7 +157,7 @@ u.content="직장인들이 입기 좋아요."
 u.price="50000"
 u.point="500"
 u.qty="100"
-u.options="S\nM\nL"
+u.options="S|100\nM|100\nL|100"
 u.image=File.open(File.join(Rails.root,'필립자켓.JPG'))
 u.save
 
