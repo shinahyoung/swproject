@@ -53,7 +53,7 @@ function checkbuy(){
 
 <% @cart.line_items.each do |item| %>
 
-    <%=check_box("product","commands",{:checked => true}, item.post.title+"/"+item.options+"/"+item.qty.to_s+"/"+item.price.to_s, nil)=%>
+    <%=check_box("product","commands", {:checked => true, :multiple=>true}, item.post.title+"/"+item.options+"/"+item.qty.to_s+"/"+item.price.to_s, nil)=%>
     <img src="<%= item.image %>" style="max-width:100px;height:auto;">
    <li><%=item.post.title %>
    <%b=item.price.to_s.split('')%><%c=""%>  <%i=0%> 
