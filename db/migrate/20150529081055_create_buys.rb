@@ -1,6 +1,8 @@
 class CreateBuys < ActiveRecord::Migration
   def change
     create_table :buys do |t|
+      t.string  :image
+      t.integer :buy_id 
       t.integer :post_id
       t.integer :point
       t.integer :price

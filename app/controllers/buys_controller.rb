@@ -1,22 +1,32 @@
 class BuysController < ApplicationController
   def write
-    @cart=current_cart
-    @line_item=@cart.line_items
+   cart=current_cart
+#  @chk=params[:chk_info] 
+  @tok
 
-    chk=params[:chk_info]
-    tok=chk.split(', ')
-    for item in @line_item
-        for select in tok
-            if item.post.title == select
-                bb=item.id
-                post=Post.find(bb)
-                @buying=@cart.line_items.build(post: post)       
-            end
-        end
-    end
+   @total=0
+   @buy=Buy.new
+   for item in cart.line_items.each
+       for select in @tok
+           if item.post.title == select
+            
+               bb=item.post_id
+               post=Post.find(bb)       
+               line_item=@buy.line_items.build(post:post)
+               line_item.options=item.options
+               line_item.price=item.price
+               line_item.point=item.point
+               line_item.options=item.options
+               line_item.qty=item.qty
+               line_item.image=post.image
+               line_item.save
 
+               @total=@total+item.price    
+           end
+       end
+   end
+   @buy.save
     @user=User.find(session[:user_id])
-        
   end
 
   def write_directly
@@ -25,11 +35,12 @@ class BuysController < ApplicationController
   end
 
   def write_complete
-    
+
   end
   
   def write_complete_directly
 
   end
- 
+
+
 end

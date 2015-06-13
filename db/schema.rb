@@ -14,6 +14,8 @@
 ActiveRecord::Schema.define(version: 20150529081055) do
 
   create_table "buys", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "buy_id"
     t.integer  "post_id"
     t.integer  "point"
     t.integer  "price"
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150529081055) do
   end
 
   create_table "line_items", force: :cascade do |t|
+    t.integer  "buy_id"
     t.integer  "post_id"
     t.integer  "cart_id"
     t.integer  "point"

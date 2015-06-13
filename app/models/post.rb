@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
     belongs_to  :user
     has_many    :buy
+    has_many    :line_item
     has_many    :reviews
     has_many    :cart
     before_destroy  :ensure_not_referenced_by_any_line_item
