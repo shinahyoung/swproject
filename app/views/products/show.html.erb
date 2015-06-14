@@ -162,9 +162,10 @@
   <thead>
     <tr>
       <th>번호</th>
-      
-      <th>이름</th>
-<th>제목</th>      
+    <th>답변상태</th>
+<th>제목</th>   
+<th>문의자</th>
+<th>등록일</th>
 <th colspan="3"></th>
     </tr>
   </thead>
@@ -176,8 +177,10 @@
 	<% if qna.post_id == @post.id %>
         
         <td><%= count%></td><%count=count+1%>
-	<td><%= qna.name %></td>        
+        <td>"?"</td>
 	<td><%= link_to qna.title, qna %></td>
+    <td><%= qna.name %></td>
+    <td><%=qna.created_at%></td>
 	<% if @u%>
 
 		<% if qna.name == @u.username %>

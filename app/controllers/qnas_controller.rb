@@ -13,6 +13,15 @@ class QnasController < ApplicationController
 
   end
 
+  def write_qcomment_complete
+   comment=Qcomment.new
+   comment.qna_id=params[:qna_id]
+   comment.comment=params[:qcomment_content]
+
+   comment.save
+   redirect_to "/qnas/show/#{comment.qna_id}"
+  end
+
   # GET /qnas/new
   def new
 @user=User.find(session[:user_id])
