@@ -1,0 +1,52 @@
+
+<p>
+  <strong>제목:</strong>
+  <%= @qna.title %>
+</p>
+
+<p>
+  <strong>이름:</strong>
+  <%= @qna.name %>
+</p>
+
+<p>
+  <strong>내용:</strong>
+  <%= @qna.content %>
+</p>
+<%if session[:user_id] %>
+<% if @qna.name == User.find(session[:user_id]).username %>
+<%= link_to '수정', edit_qna_path(@qna) %>
+<%end%>
+<%end%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qna_comments.each do |qna_comment| %>
+        <%if qna_comment.qna_id == params[:post_id]%>
+
+      <tr>
+        <td><%= qna_comment.name %></td>
+        <td><%= link_to qna_comment.content , qna_comment %></td>
+		<%if session[:user_id] %>
+		<% if @qna.name == User.find(session[:user_id]).username || session[:user_id]==1%>
+        	<td><%= link_to 'Destroy', qna_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      		</tr>
+		<% end%>
+    		<% end %>
+	<% end%>
+    <% end %>
+  </tbody>
+</table>
+	
+
+<br>
+<%= render 'form' %>
+

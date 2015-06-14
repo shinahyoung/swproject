@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-    belongs_to  :user
+has_many:qna, dependent: :destroy
+belongs_to  :user
     has_many    :buy
     has_many    :line_item
     has_many    :reviews

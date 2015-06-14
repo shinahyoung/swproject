@@ -1,0 +1,30 @@
+<%= form_for(@qna) do |f| %>
+  <% if @qna.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qna.errors.count, "error") %> prohibited this qna from being saved:</h2>
+
+      <ul>
+      <% @qna.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :제목 %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field" style="display:none";>
+    <%= f.label :이름 %><br>
+    <%= f.text_field :name , :value => User.find(session[:user_id]).username%>
+  </div>
+  <div class="field">
+    <%= f.label :내용 %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+<%= hidden_field_tag 'post_id', params[:post_id] %>
+
+    <%= f.submit "확인"%>
+  </div>
+<% end %>

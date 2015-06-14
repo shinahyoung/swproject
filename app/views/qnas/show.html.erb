@@ -1,0 +1,22 @@
+
+<p>
+  <strong>제목:</strong>
+  <%= @qna.title %>
+</p>
+
+<p>
+  <strong>이름:</strong>
+  <%= @qna.name %>
+</p>
+
+<p>
+  <strong>내용:</strong>
+  <%= @qna.content %>
+</p>
+<%if session[:user_id] %>
+<% if @qna.name == User.find(session[:user_id]).username %>
+<%= link_to '수정', edit_qna_path(@qna) %>
+<%end%>
+<%end%>
+
+

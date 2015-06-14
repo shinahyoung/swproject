@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qnas
   get "carts/:id/show" => 'carts#show'
 
   get 'admin/show'

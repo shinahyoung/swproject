@@ -1,0 +1,2 @@
+module QnaCommentsHelper
+end
