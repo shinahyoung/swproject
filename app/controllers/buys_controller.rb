@@ -3,7 +3,9 @@ class BuysController < ApplicationController
    cart=current_cart
 
    @check_p=params[:product]
-
+   
+   @user=User.find(session[:user_id])
+@use_point=0
    @total=0
    @buy=Buy.new
    for item in cart.line_items.each
@@ -31,7 +33,7 @@ class BuysController < ApplicationController
 
   def write_complete
    cart=current_cart
-   user=User.find(session[:user_id])
+   @user=User.find(session[:user_id])
    
    for item in cart.line_items.each
       for select in params[:check_d]
@@ -67,14 +69,15 @@ class BuysController < ApplicationController
             
             post.options=@tmp2
             post.save
-            user.point=user.point+item.point
-            user.money=user.money-item.price
+            @user.point=@user.point+item.point-params[:use_point_amount_2].to_i
+            @user.money=@user.money-(item.price-params[:use_point_amount_2].to_i)
+            
             item.delete
         end
       end
    end
 
-   user.save
+   @user.save
    cart.save
 
   end

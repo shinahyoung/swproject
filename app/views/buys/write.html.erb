@@ -1,9 +1,47 @@
 <p><%= flash[:alert] %></p>
 
-
-<h1>주문하기</h1>
 <p><%=params[:chk_info]%></p>
-<form action="/buys/write_complete" method="post">
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+             //   $('input[type="checkbox"]').click(function(){
+                   
+                  $('#use_point_amount').change(function(){
+                   var tmp1=<%=@total%>
+                   var tmp0="총 결제금액: "
+                        if($('input[type="checkbox"]').prop("checked")==true){
+                            var tmp2=$('#use_point_amount').val();
+                            var tmp3=tmp1-tmp2;
+                           // alert(tmp1+'/'+tmp2+'/'+tmp3);
+                        }else{
+                            tmp3=tmp1;
+                        }
+                        tmp0=tmp0+tmp3+"원"
+                        $('#pu').text(tmp0);
+                    });
+           });
+
+  </script>
+
+
+<script type="text/javascript">
+    function buybuy(){
+        var f=document.write_form;
+        if(f.use_point.checked=='1')
+        {
+            if(parseInt(f.use_point_amount.value)><%=@user.point%>)
+                alert("사용가능한 포인트를 초과하셨습니다");
+            else
+                f.submit();
+        }
+        else{
+            f.submit();
+        }
+    }
+
+</script>
+<form name="write_form" action="/buys/write_complete" method="post">
 <ul>
 
 <% @buy.line_items.each do |item| %>
@@ -12,53 +50,34 @@
    <li> 
  <img src="<%= item.image %>" style="max-width:100px;height:auto;">
     <li><%=item.post.title %>
-    <%b=item.price.to_s.split('')%>
- <%c=""%>
-   <%i=0%>
-   <%for d in b.reverse%>
-   <%if i%3==0&&i!=0%>
- <%c=','+c%>
-  <%end%>
-  <%c=d+c%>
-   <%i=i+1%>
-   <%end%>
+    <%b=item.price.to_s.split('')%> <%c=""%>   <%i=0%>
+   <%for d in b.reverse%>    <%if i%3==0&&i!=0%> <%c=','+c%>  <%end%>  <%c=d+c%>   <%i=i+1%>   <%end%>
    :<%=c=%>원
-   <%b=item.point.to_s.split('')%>
-           <%c=""%>
-          <%i=0%>
-          <%for d in b.reverse%>
-         <%if i%3==0&&i!=0%>
-       <%c=','+c%>
-      <%end%>
-       <%c=d+c%>
-       <%i=i+1%>
+   <%b=item.point.to_s.split('')%>    <%c=""%>    <%i=0%>    <%for d in b.reverse%>       <%if i%3==0&&i!=0%>       <%c=','+c%>
+ <%end%>  <%c=d+c%>  <%i=i+1%>
 <%end%>
- :<%=c=%>
+:<%=c=%>
 
  :<%=item.options%>
- :<%=item.qty%>
-
-   
+ :<%=item.qty%>   
    </li>
    <%end%>
    </ul>
   <%b=@total.to_s.split('')%>
-          <%c=""%>
-              <%i=0%>
-               <%for d in b.reverse%>
-               <%if i%3==0&&i!=0%>
-              <%c=','+c%>
-              <%end%>
-               <%c=d+c%>
-                <%i=i+1%>
-                <%end%>
+          <%c=""%>              <%i=0%>               <%for d in b.reverse%>               <%if i%3==0&&i!=0%>              <%c=','+c%>      <%end%>
+               <%c=d+c%>                <%i=i+1%>                <%end%>
    <p>총 금액: <%=c=%></p> 
 <hr>
 <h3>결제수단선택</h3>
 <p>결제방식: 사이버머니</p>
+
+<p>  <input type="checkbox" name="use_point">포인트 사용
+<input type="text" id="use_point_amount" name="use_point_amount_2" value="0">
+  현재 포인트: <%=@user.point%></p>
+
   <p>상품합계금액: <%=c=%>원</p>
   <p>배송료: 0원 </p>
-  <p>총결제금액: <%=c=%> 원</p>
+  <p id="pu">총 결제금액: <%=c=%>원</p>
   <hr>
   <h3>주문자정보</h3>
   <p>주문하시는분: <input class="form-input" type="text" name="fromname" value="<%=@user.name%>"></p>
@@ -70,6 +89,6 @@
   <p>주소 <input type="text" name="toaddr" placeholder="주소를 입력하세요"></p>
   <p>배송메모 <input type="textarea" name="memo" placeholder="배송 메모를 입력하세요"></p>
 
-  <input type="submit" value="결제하기">
+  <input name="buy_submit" type="button" value="결제하기" onclick="buybuy();">
 </form>
 
