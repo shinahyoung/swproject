@@ -31,7 +31,10 @@
       <% else %>
       <li><a href="/users/logout_complete">로그아웃</a></li>
       <% end %>
+      <% if session[:user_id]!=1 && session[:user_id]!=nil%>
       <li><a href="/carts/<%=session[:user_id]%>/show">장바구니</a></li>
+      <li><a href="/users/<%=session[:user_id]%>/buy_list">구매내역</a></li>
+      <% end %>
       <li><a href="/comments/show">게시판</a></li>
        <% if session[:user_id]==1 =%>
       <li><a href="/admin/show">관리자</a></li>

@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
     t.integer   :qty
     t.string    :select_opt
     t.text  :options
+    t.string    :image2
     t.timestamps null: false
     end
   end

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150529081055) do
 
   create_table "buys", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "image"
     t.integer  "point"
     t.integer  "price"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150529081055) do
     t.integer  "qty"
     t.string   "select_opt"
     t.text     "options"
+    t.string   "image2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"

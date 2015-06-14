@@ -1,0 +1,12 @@
+<h2> 구매내역 리스트</h2>
+<hr>
+<%if @buy!=nil %>
+<ul>
+<% @buy.reverse.each do |post|%>
+    <%if post.user_id == @user.id %>
+      <li><img src="<%=post.image%>" style="max-width:100px;height:auto;">
+      <li><%=post.title%>:<%=post.option%>:<%=post.price%>:<%=post.qty%></li>
+    <%end%>
+<%end%>
+<%end%>
+

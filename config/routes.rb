@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-#  get 'admin/show'
   get "carts/:id/show" => 'carts#show'
 
   get 'admin/show'
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
   post 'buys/write'
 
   post 'buys/write_complete'
-
+  post 'buys/write_directly'
+  post 'buys/write_complete_directly'
   get 'comments/comments_category'
 
   get 'comments/show'
@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   get 'users/logout_complete'
 
   post 'users/buy'
+
+  get 'users/:id/buy_list'=>'users#buy_list'
+
   root 'products#posts'
 
   get "/:category"=>'products#posts_category'

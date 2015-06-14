@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  def buy
+  def buy_list
+    @user=User.find(session[:user_id])
+    @buy=Buy.all
   end
   def signup
   end

@@ -134,8 +134,8 @@ class BuysController < ApplicationController
             
             post.options=@tmp2
             post.save
-            @user.point=@user.point+params[:point].to_i-params[:use_point_amount_2].to_i
-            @user.money=@user.money-(params[:price].to_i-params[:use_point_amount_2].to_i)
+            @user.point=@user.point+item.point-params[:use_point_amount_2].to_i
+            @user.money=@user.money-(item.price-params[:use_point_amount_2].to_i)
 	    @user.save	
   end
 

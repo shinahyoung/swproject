@@ -24,7 +24,7 @@
            if(parseInt(tok[1])<parseInt(f.amount.value))
                alert("재고가 부족합니다");
            else{
-                f.action="/users/buy"
+                f.action="/buys/write_directly"
                 f.submit();
            }
        }
@@ -116,20 +116,33 @@
 
 
 <hr>
+
 <input type="hidden" name="bb" value=<%=@post.id%>>
+<%if @user!=1%>
 <input type="button" value="ADD TO CART" onclick="addtocart();">
 <input type="button" value="BUY" onclick="buy();">
-
+<%end%>
 
 
 
 </form>
 </div><div class="col-md-1">
 </div>
-</div>
-<p><%= flash[:alert] %></p>
 
+
+
+</div>
+
+<hr>
+<div class="col-md-2"></div>
+<div class="col-md-10">
+<p><img src="<%=@post.image2_url(:sub)%>" ></p>
+</div>
+
+
+<hr>
 <div class="col-md-3"></div>
+<div class="col-md-9">
 <hr>
 <% @post.reviews.each do |review|%>
 <p><strong><%=@review.name%></strong> <%=review.content %> | <a href="/products/delete_review_complete/<%=review.id %>">삭제</a></p>
@@ -140,7 +153,7 @@
   <p>Review:<input type="text" name="review_content" placehodler="댓글 내용을 입력하세요."> <input type="submit" value="달기"></p>
 </form>
 
-
+</div>
         
 </div>
 

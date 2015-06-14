@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
     validates   :point, :presence =>{:message=>"포인트를 반드시 입력하셔야 합니다."}
 
 mount_uploader  :image, ImageUploader
-
+mount_uploader  :image2, ImageUploader
 
 
  private

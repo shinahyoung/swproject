@@ -1,7 +1,7 @@
 class CreateBuys < ActiveRecord::Migration
   def change
     create_table :buys do |t|
-      t.string  :user_id
+      t.integer  :user_id
       t.string  :image
       t.integer :point
       t.integer :price

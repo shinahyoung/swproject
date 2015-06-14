@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
         post.price=params[:post_price]
         post.point=params[:post_point]
         post.options=params[:post_option]
-
+        post.image2=params[:image2]
         if post.save
            flash[:alert] = "저장되었습니다."
            redirect_to "/products/show/#{post.id}"
@@ -78,7 +78,7 @@ class ProductsController < ApplicationController
    post.options=params[:post_option]
    post.qty=params[:post_qty]
    post.image=params[:image]
-
+   post.image2=params[:image2]
    if post.save
       flash[:alert] = "수정되었습니다."
       redirect_to "/products/show/#{post.id}"
