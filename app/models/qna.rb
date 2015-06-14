@@ -1,4 +1,4 @@
 class Qna < ActiveRecord::Base
     belongs_to:post
-    belongs_to:qna_comment
+    has_many:qcomments
 end
