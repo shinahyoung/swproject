@@ -172,29 +172,23 @@
 
   <tbody>
 <%count=0%>
-    <% @qnas.each do |qna| %>
+    <% @post.qnas.each do |qna| %>
 	<tr>
-	<% if qna.post_id == @post.id %>
-        
-        <td><%= count%></td><%count=count+1%>
+        <td><%= count%><%count=count+1%></td>
         <td>"?"</td>
-	<td><%= link_to qna.title, qna %></td>
-    <td><%= qna.name %></td>
-    <td><%=qna.created_at%></td>
+	    <td><%= link_to qna.title, qna %></td>
+        <td><%= qna.name %></td>
+        <td><%=qna.created_at%></td>
 	<% if @u%>
-
-		<% if qna.name == @u.username %>
-
+        <% if qna.name == @u.username %>
         	<td><%= link_to '수정', edit_qna_path(qna) %></td>
 		<% end %>
-
 		<% if qna.name == @u.username || @user==1%>
         	<td><%= link_to '삭제', qna, method: :delete, data: { confirm: '삭제하시겠습니까?' } %></td>
 		<% end %>
-	<% end %>      
+	<% end %>
 	</tr>
-      <%end%>
-    <% end %>
+    <%end%>
   </tbody>
 </table>
 
