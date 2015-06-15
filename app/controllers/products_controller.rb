@@ -100,6 +100,7 @@ class ProductsController < ApplicationController
   def write_review_complete
    review = Review.new
    review.post_id=params[:post_id]
+   review.user_id=session[:user_id]
    review.content= params[:review_content]
    review.save
   
