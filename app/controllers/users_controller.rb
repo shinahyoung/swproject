@@ -77,6 +77,32 @@ class UsersController < ApplicationController
 
   end
 
+def edit
+@user=User.find(session[:user_id])
+end
+
+  def edit_complete
+	  user=User.find(params[:user_id])
+	
+	  user.name=params[:name]
+	  user.phone=params[:phone]
+	  user.addr=params[:addr]
+	  user.email=params[:email]
+	  user.birth=params[:birth]
+	  if params[:password] == params[:retype_password]
+	     user.password = params[:password]
+	  else
+	     flash[:alert] = "비밀번호가 맞지 않습니다."
+	     redirect_to :back
+	  end
+          if user.save
+          else
+            flash[:alert] = user.errors.values.flatten.join(" ")
+            redirect_to :back
+          end
+
+  end
+
   def find_passwd_complete
     @user=User.where(username: params[:username])[0]
     if @user.nil?

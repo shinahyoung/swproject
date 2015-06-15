@@ -36,6 +36,9 @@ Rails.application.routes.draw do
 
   post 'users/signup_complete'
 
+  get 'users/edit'
+  post 'users/edit_complete'
+
   get 'users/login'
 
   post 'users/login_complete'

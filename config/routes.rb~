@@ -36,6 +36,8 @@ Rails.application.routes.draw do
 
   post 'users/signup_complete'
 
+  get 'users/edit'
+
   get 'users/login'
 
   post 'users/login_complete'
@@ -49,6 +51,8 @@ Rails.application.routes.draw do
   get 'users/find_passwd'
     
   post 'users/find_passwd_complete'
+  get 'users/find_username'
+  post 'users/find_username_complete'
 
   root 'products#posts'
 

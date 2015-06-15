@@ -51,7 +51,66 @@ class UsersController < ApplicationController
     end
   end
 
+  def find_username
+  end
+
+  def find_username_complete
+    check=0
+    @user=nil
+    user_array=User.where(name: params[:name])
+    for u in user_array
+	if u.birth == params[:birth]
+		check=1
+		break
+	end
+    end
+    if check==0
+        flash[:alert]="아이디가 존재하지 않습니다"
+        redirect_to :back
+    else
+	@user=u
+    end		
+  end
+
+
   def find_passwd
+
+  end
+
+def edit
+@user=User.find(session[:user_id])
+end
+
+  def edit_complete
+	user=User.find(params[:user_id])
+	
+	if params[:name]
+	  user.name=params[:name]
+	end
+	if params[:phone]
+	  user.phone=params[:phone]
+	end
+	if params[:addr]
+	  user.addr=params[:addr]
+	end
+	if params[:email]
+	  user.email=params[:email]
+	end
+	if params[:birth]
+	  user.birth=params[:birth]
+	end
+	  if params[:password] == params[:retype_password]
+	     user.password = params[:password]
+	  else
+	     flash[:alert] = "비밀번호가 맞지 않습니다."
+	     redirect_to :back
+	  end
+     if user.save
+        
+     else
+         flash[:alert] = user.errors.values.flatten.join(" ")
+         redirect_to :back
+     end
 
   end
 
