@@ -62,7 +62,6 @@ class UsersController < ApplicationController
         redirect_to :back
     else
     	@rd=rand(1000000...9999999)
-	flash[:alert]="임시 비밀번호가 "+@user.email+" 에 발송되었습니다."
 	@user.password=@rd
 	@user.save
     	UserNotifier.send_email(@user,@rd).deliver 

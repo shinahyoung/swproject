@@ -51,6 +51,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def find_username
+  end
+
+  def find_username_complete
+    check=0
+    @user=nil
+    user_array=User.where(name: params[:name])
+    for u in user_array
+	if u.birth == params[:birth]
+		check=1
+		break
+	end
+    end
+    if check==0
+        flash[:alert]="아이디가 존재하지 않습니다"
+        redirect_to :back
+    else
+	@user=u
+    end		
+  end
+
+
   def find_passwd
 
   end

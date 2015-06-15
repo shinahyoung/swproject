@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   get 'users/find_passwd'
     
   post 'users/find_passwd_complete'
+  get 'users/find_username'
+  post 'users/find_username_complete'
 
   root 'products#posts'
 

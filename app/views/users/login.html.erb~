@@ -14,10 +14,7 @@
   <input class="btn btn-lg btn-block" type="submit" value="로그인">
   </form>
 
-<form action="/users/find_passwd" method="post">
-<input class="btn btn-lg btn-block" type="button" value="비밀번호 찾기">
-</form>
-
+<a href="/users/find_passwd" class="btn btn-lg btn-block">비밀번호 찾기</a>
 </div>
 <div class="col-md-4">
 </div>
