@@ -20,7 +20,8 @@
 <%end%>
 <hr>
 <% @qna.qcomments.each do |comment| %>
-<p><strong>아이디</stong> <%=comment.comment%></p>
+<p><strong>아이디</stong> <%=comment.comment%>
+ | <a href="/qnas/delete_qcomment_complete/<%=comment.id%>">삭제</a></p>
 <% end %>
 <form action="/qnas/write_qcomment_complete" method="post">
     <input type="hidden" name="qna_id" value="<%=@qna.id%>">

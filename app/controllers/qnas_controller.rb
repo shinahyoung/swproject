@@ -13,6 +13,11 @@ class QnasController < ApplicationController
 
   end
 
+  def delete_qcomment_complete
+    comment=Qcomment.find(params[:id])
+    comment.destroy
+    redirect_to "/qnas/show/#{comment.qna_id}"
+  end
   def write_qcomment_complete
    comment=Qcomment.new
    comment.qna_id=params[:qna_id]

@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get "products/delete_review_complete/:id" => 'products#delete_review_complete'
   post "qnas/write_qcomment_complete"  
   get "qnas/show/:id"=>'qnas#show'
+  get "qnas/delete_qcomment_complete/:id"=>'qnas#delete_qcomment_complete'
 # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

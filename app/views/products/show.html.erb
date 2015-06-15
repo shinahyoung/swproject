@@ -162,7 +162,6 @@
   <thead>
     <tr>
       <th>번호</th>
-    <th>답변상태</th>
 <th>제목</th>   
 <th>문의자</th>
 <th>등록일</th>
@@ -171,12 +170,11 @@
   </thead>
 
   <tbody>
-<%count=0%>
-    <% @post.qnas.each do |qna| %>
+<%count=@post.qnas.count%>
+    <% @post.qnas.reverse.each do |qna| %>
 	<tr>
-        <td><%= count%><%count=count+1%></td>
-        <td>"?"</td>
-	    <td><%= link_to qna.title, qna %></td>
+        <td><%= count%><%count=count-1%></td>
+	    <td><%= link_to qna.title, qna %>[<%=qna.qcomments.count%>]</td>
         <td><%= qna.name %></td>
         <td><%=qna.created_at%></td>
 	<% if @u%>
