@@ -1,0 +1,19 @@
+<div class="row">
+<div class="col-md-4">
+</div>
+<div class="col-md-4 text-center">
+ <h3 class="form-heading">비밀번호 찾기</h3>
+<hr>
+<p><%= flash[:alert] %></p>
+  <hr>
+ <form action="/users/change_passwd" method="post">
+   <p><input class="form-input" type="text" name="checknumber" placeholder="인증번호"></p>
+ <input type="hidden" name="username" value="<%=params[:username]%>"> 
+ <input class="btn btn-lg btn-block" type="submit" value="입력">
+     </form>
+        </div>
+    <div class="col-md-4">
+       </div>
+          </div>
+    </div>
+

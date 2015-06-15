@@ -9,5 +9,5 @@ validates :name, :presence => { :message => "이름을 반드시 입력하셔야
 validates :phone, :presence => { :message => "전화번호를 반드시 입력하셔야 합니다." }
 validates :addr, :presence => { :message => "주소를 반드시 입력하셔야 합니다." }
 validates :birth, :presence => { :message => "생년월일을 반드시 입력하셔야 합니다." }
-
+validates :email, :presence => {:message => "e-mail을 반드시 입력하셔야 합니다."}
 end

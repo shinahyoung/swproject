@@ -30,7 +30,6 @@ u.phone="012-3456-789"
 u.addr="서울시 노원구 월계동"
 u.birth="1999-01-15"
 u.point=0
-u.email="vtlswhdgurv@naver.com"
 u.money=0
 u.save
 
@@ -43,7 +42,6 @@ u.phone="010-1234-9999"
 u.addr="서울시 양천구"
 u.birth="1999-03-22"
 u.money=0
-u.email="vtlswhdgurv@naver.com"
 u.point=0
 u.save
 
@@ -56,7 +54,6 @@ u.phone="010-3115-0000"
 u.addr="서울시 마포구"
 u.birth="1999-01-01"
 u.money=0
-u.email="vtlswhdgurv@naver.com"
 u.point=0
 u.save
 
@@ -67,7 +64,6 @@ u.category="상의"
 u.title="윙크티"
 u.content="깜찍하고 예쁜 윙크 티"
 u.price="30000"
-
 u.point="300"
 u.qty="100"
 u.options="S|30\nM|30\nL|100"
