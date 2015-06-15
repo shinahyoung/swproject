@@ -6,7 +6,7 @@
   <hr>
   <p><%= flash[:alert] %></p>
    <hr>
-    <form action="/users/find_passwd_ing_1" method="post">
+    <form action="/users/find_passwd_complete" method="post">
     <p><input class="form-input" type="text" name="username" placeholder="아이디"></p>
 <input class="btn btn-lg btn-block" type="submit" value="입력">
  </form>

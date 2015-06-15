@@ -46,11 +46,9 @@ Rails.application.routes.draw do
 
   get 'users/:id/buy_list'=>'users#buy_list'
 
-  post 'users/find_passwd'
-  post 'users/find_passwd_ing_1'
-  post 'users/find_passwd_ing_2'
-  post 'users/change_passwd'
-  post 'users/change_passwd_complete'
+  get 'users/find_passwd'
+    
+  post 'users/find_passwd_complete'
 
   root 'products#posts'
 

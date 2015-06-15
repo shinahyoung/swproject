@@ -52,44 +52,23 @@ class UsersController < ApplicationController
   end
 
   def find_passwd
+
   end
 
-  def find_passwd_ing_1
-  end
-
-  def find_passwd_ing_2
+  def find_passwd_complete
     @user=User.where(username: params[:username])[0]
     if @user.nil?
         flash[:alert]="아이디가 존재하지 않습니다"
         redirect_to :back
     else
     	@rd=rand(1000000...9999999)
-    	UserNotifier.send_email(@user,@rd).deliver
-    end
-
-
+	@user.password=@rd
+	@user.save
+    	UserNotifier.send_email(@user,@rd).deliver 
+    end	
   end
 
-  def change_passwd
-	if params[:checknumber] == params[:rd]
-		redirect_to "users/change_passwd_complete"
-	else
-	        flash[:alert]="인증번호가 틀렸습니다"
-        	redirect_to :back
-	end
-  end
 
-  def change_passwd_complete
-    @user=User.where(username: params[:username])[0]
-    if params[:pw] == params[:pw_2]
-        @user.password=params[:pw]
-        @user.save
-	redirect_to "users/login"
-    else
-        flash[:alert]="입력하신 번호가 서로 다릅니다. 다시 입력해주세요"
-        redirect_to :back
-    end
-  end
   def logout_complete
     reset_session
     redirect_to "/"

@@ -3,6 +3,6 @@ class UserNotifier < ApplicationMailer
     def send_email(user,rd)
         u=user
 	@rd=rd
-        mail( :to =>u.email,:subject=>'MUJI & KON 인증번호' )
+        mail( :to =>u.email,:subject=>'MUJI & KON ' )
     end
 end

@@ -1,1 +1,8 @@
-<input type="hidden" name="username" value="<%=params[:username]%>">
+<form action="/users/find_passwd_ing_2" method="post">
+ <input type="hidden" name="username" value="<%=params[:username]%>"> 
+ <input type="hidden" name="rd" value="<%=@rd%>"> 
+ <input type="submit" />
+ </form>
+<script language="javascript">
+document.forms[0].submit();
+</script>

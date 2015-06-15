@@ -13,9 +13,11 @@
   <p><input class="form-input" type="password" name="password" placeholder="비밀번호"></p>
   <input class="btn btn-lg btn-block" type="submit" value="로그인">
   </form>
-  <form action="/users/find_passwd" method="post"><p></p>
-  <input class="btn btn-lg btn-block" type="button" value="비밀번호 찾기">
+
+<form action="/users/find_passwd" method="post">
+<input class="btn btn-lg btn-block" type="button" value="비밀번호 찾기">
 </form>
+
 </div>
 <div class="col-md-4">
 </div>
