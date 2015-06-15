@@ -4,9 +4,24 @@
 <%if !session[:user_id].nil?%>
 <%hh=User.find(session[:user_id])%>
 <b><%=hh.name%></b>님 환영합니다!
+
+<%if session[:user_id].nil? %>
+<a href="/users/signup"><b><font size=3>회원가입</font></b></a>
+<a href="/users/login"><font size=3><b>로그인</b></font></a>
+<% else %>
+<a href="/users/logout_complete"> <font color=red>로그아웃</font></a>
+<%end%>
+
+
 <p><%=hh.point%> point</p>
 <p><%=hh.money%> 원</p>
 <%end%>
+<%if session[:user_id].nil? %>
+<a href="/users/signup"><b><font size=3>회원가입</font></b></a>
+<a href="/users/login"><font size=3><b>로그인</b></font></a>
+<%end%>
+
+
 </div>
 <br><br>
 <h1 class="title"><a class="title-link" href="/"></a></h1>
@@ -24,12 +39,6 @@
     <ul class="nav navbar-nav navbar-right">
       <% if session[:user_id]==1 %>
       <li><a href="/products/write">상품추가</a></li>
-      <% end %>
-      <% if session[:user_id].nil? %>
-      <li><a href="/users/signup">회원가입</a></li>
-      <li> <a href="/users/login">로그인</a></li>
-      <% else %>
-      <li><a href="/users/logout_complete">로그아웃</a></li>
       <% end %>
       <% if session[:user_id]!=1 && session[:user_id]!=nil%>
       <li><a href="/carts/<%=session[:user_id]%>/show">장바구니</a></li>
