@@ -27,7 +27,11 @@ $('input[type="checkbox"]').click(function(){
                 var tok=$(this).attr("value").split('/');
                 var ip=parseInt(tok[3]);
                 var iq=parseInt(tok[2]);
+<<<<<<< HEAD
              // alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
+=======
+              //alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
+>>>>>>> 55d8f046ce6724513554572f33f74703fc5f7667
                     if($(this).prop("checked")==true){
                         p=p+ip;q=q+iq;
                         $('#total_qty').text("총 선택: "+q+" 개");//$(this).attr("value"));
