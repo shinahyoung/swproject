@@ -27,11 +27,7 @@ $('input[type="checkbox"]').click(function(){
                 var tok=$(this).attr("value").split('/');
                 var ip=parseInt(tok[3]);
                 var iq=parseInt(tok[2]);
-<<<<<<< HEAD
-             // alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
-=======
-              //alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
->>>>>>> 55d8f046ce6724513554572f33f74703fc5f7667
+            //  alert("p="+p+"/q="+q+"/ip="+ip+"/iq="+iq);
                     if($(this).prop("checked")==true){
                         p=p+ip;q=q+iq;
                         $('#total_qty').text("총 선택: "+q+" 개");//$(this).attr("value"));
@@ -111,10 +107,12 @@ function checkbuy(){
                         <%c=d+c%>   <%i=i+1%>
                     <%end%>
 <td width="10%" align="center"><%=c=%></td>
-<td width="10%" align="center"><%=item.options%></td>
 <td width="10%" align="center"><%=item.qty%></td>
+<td width="10%" align="center"><%=item.options%></td>
 <td width="10%" align="center"><%=link_to '삭제',item,method: :delete, data: {confirm: '정말로 장바구니에서 삭제하시겠습니까?'} %></td>
+
 <%tqty=tqty+item.qty%>
+
 <%tprice=tprice+item.price%>
 
 </tr>
