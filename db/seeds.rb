@@ -85,6 +85,7 @@ u.point="330"
 u.qty="100"
 u.options="S|100\nM|100\nL|100\nXL|100"
 u.image=File.open(File.join(Rails.root,'flowerblouse.JPG'))
+#u.image2=File.open(File.join(Rails.root,'a.png'))
 u.save
 
 u = Post.new

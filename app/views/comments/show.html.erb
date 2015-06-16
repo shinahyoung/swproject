@@ -1,15 +1,15 @@
-<h4>후기</h4>
+<div class align="center"><h4><b>후기</b></h4></div>
+<!--
 <table class="col-md-3" cellspacing=1 width=700 border=0>
     <tr>
         <td>총 게시물수: <%= @comments.count%></td>
-        <!--
         <td><p align=right> 페이지:<%= @current_page %>
         </td>
-        --!>
     </tr>
 </table>
-
-<table cellspacing=1 width=700 border=1 bgcolor="#CCFFCC">
+-->
+<div class="col-md-7"></div>총 게시물 수: <%=@comments.count%>
+<table cellspacing=1 align="center" width=700 border=1 bgcolor="#CCFFCC">
     <tr bgcolor="#CCFFCC">
         <td width=50><p align=center>번호</p>
         </td>
@@ -45,6 +45,7 @@
 <table width=700>
     <tr>
         <td>
+	  <div class="col-md-8"></div>
           <li><a href="/comments/write/">글쓰기</a></li>
         </td>
         <!--
