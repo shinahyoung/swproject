@@ -8,20 +8,16 @@ A:hover {color:blue; text-decoration: none; background-color:white; };
 		<p><a href="/users/signup">회원가입</a> | <a href="/users/login">로그인</a></p>
 	<%else%>
 	    <% if session[:user_id]!=1 %>
+		<p><%hh=User.find(session[:user_id])%><b><%=hh.name%></b>님 환영합니다!  <%=hh.point%> point | <%=hh.money%> 원</p>
+
 	<p><a href="/users/logout_complete"> <b><font color=red>로그아웃</font></a></b>
  | <a href="/users/edit">정보수정</a>
  | <a href="/carts/<%=session[:user_id]%>/show">장바구니</a>
  | <a href="/users/<%=session[:user_id]%>/buy_list">구매내역</a></p>
-    <%else%>
-     	<p><a href="/products/write">상품추가</a> | <a href="/admin/show">유저 관리</a></p>
-    <% end %>
-<%end%>
-
-   <% if session[:user_id]!=1 && session[:user_id] %>
-	<p><%hh=User.find(session[:user_id])%><b><%=hh.name%></b>님 환영합니다!</p>
-	<p><%=hh.point%> point | <%=hh.money%> 원</p>
-    <% end %>
-
+	    <%else%>
+     	<p><a href="/users/logout_complete"> <b><font color=red>로그아웃</font></a></b> | <a href="/products/write">상품추가</a> | <a href="/admin/show">유저 관리</a></p>
+	    <% end %>
+	<%end%>
 </div>
 <br><br>
   <div class="image" align="center">
