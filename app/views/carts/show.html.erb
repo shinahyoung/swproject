@@ -17,6 +17,7 @@
 <% end %>
 <% tprice=0 %>
 <% tqty=0 %>
+
      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
       <script type="text/javascript">
         $(document).ready(function(){
@@ -42,7 +43,6 @@ $('input[type="checkbox"]').click(function(){
     </script>
 
 <script type="text/javascript">
-
 function checkbuy(){
     var count=0;
     var c=document.getElementsByTagName('input');
@@ -55,6 +55,23 @@ function checkbuy(){
         alert("구매할 상품을 선택해주세요");
     else
         document.myForm.submit();
+}
+window.onload = function checkboxcheck(){
+    var q=0;var p=0;
+    var c=document.getElementsByTagName('input');
+    for(var i=0;i<c.length;i++){
+        var el=c[i];
+        if(el.type=='checkbox' && el.checked){
+           //alert(el.value);
+            var tok=el.value.split('/');
+            var ip=parseInt(tok[3]);
+            var iq=parseInt(tok[2]);
+            p=p+ip;q=q+iq;
+        }
+    }
+
+    $('#total_qty').text("총 선택: "+q+" 개");
+    $('#total_price').text("총 가격: "+p+" 원");
 }
 </script>
 
@@ -110,10 +127,12 @@ function checkbuy(){
 <td width="10%" align="center"><%=item.qty%></td>
 <td width="10%" align="center"><%=item.options%></td>
 <td width="10%" align="center"><%=link_to '삭제',item,method: :delete, data: {confirm: '정말로 장바구니에서 삭제하시겠습니까?'} %></td>
-
+<!--
 <%tqty=tqty+item.qty%>
 
 <%tprice=tprice+item.price%>
+--!>
+
 
 </tr>
 <%end%>
@@ -121,8 +140,8 @@ function checkbuy(){
 <br>
 <div class="col-md-8"></div>
 <div class="col-md-4">
-<p id="total_qty">총 선택: <%=tqty%> 개</p>
-<p id="total_price">총 가격: <%=tprice%> 원</p>
+<p id="total_qty">총 선택: n개</p><!-- <%=tqty%> 개</p> --!>
+<p id="total_price">총 가격: n원</p><!-- <%=tprice%> 원</p> --!>
 </div>
 <div class="col-md-8"></div>
 <div class="col-md-4">
