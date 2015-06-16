@@ -135,7 +135,7 @@
 </div>
 
 <hr>
-<div align="center"><p><img src="<%=@post.image2_url(:sub)%>"  ></p>
+<div align="center"><p><img src="<%=@post.image2_url(:sub)%>"alt=""></p>
 </div>
 <div class="col-md-12"><hr></div>
 <div class="col-md-3"></div>
@@ -159,6 +159,7 @@
 <div class="col-md-3"></div>
 <div class="col-md-9">
 
+<!--
 <h3>Q & A</h3>
 <table>
   <thead>
@@ -196,6 +197,7 @@
 <% if @user %>
 <%= link_to '글쓰기', new_qna_path(post_id:@post.id) %>
 <% end %>
+--!>
 </div>        
 </div>
 
