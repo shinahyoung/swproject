@@ -21,6 +21,10 @@
 # end
 #end
 
+u=Cart.new
+u.id=1
+u.save
+
 u = User.new
 u.id=1
 u.username = "admin"
@@ -47,6 +51,11 @@ u.email="vtlswhdgurv@naver.com"
 u.point=0
 u.save
 
+u=Cart.new
+u.id=2
+u.save
+
+
 u = User.new
 u.id=3
 u.username = "guest2"
@@ -58,6 +67,10 @@ u.birth="1999-01-01"
 u.money=0
 u.email="vtlswhdgurv@naver.com"
 u.point=0
+u.save
+
+u=Cart.new
+u.id=3
 u.save
 
 u = Post.new
