@@ -12,7 +12,7 @@ A:hover {color:blue; text-decoration: none; background-color:white; };
 
 	<p><a href="/users/logout_complete"> <b><font color=red>로그아웃</font></a></b>
  | <a href="/users/edit">정보수정</a>
- | <a href="/carts/<%=session[:user_id]%>/show">장바구니</a>
+ | <a href="/carts/<%=session[:user_id]%>">장바구니</a>
  | <a href="/users/<%=session[:user_id]%>/buy_list">구매내역</a></p>
 	    <%else%>
      	<p><a href="/users/logout_complete"> <b><font color=red>로그아웃</font></a></b> | <a href="/products/write">상품추가</a> | <a href="/admin/show">고객 관리</a></p>

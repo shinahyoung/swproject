@@ -67,8 +67,7 @@ class CartsController < ApplicationController
 #	@cart=current_cart
       @cart = Cart.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-         @cart=Cart.create
-         session[:cart_id] = params[:id]
+         @cart=current_cart
       
     end
 
