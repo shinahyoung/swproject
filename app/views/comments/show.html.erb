@@ -14,7 +14,7 @@
 
 <br>
 <div class align="center">
-<div class="button_small" align="center"><b>장바구니</b></div>
+<div class="button_small" align="center"><b>게시판</b></div>
 </div>
 <br><br>
 
@@ -42,7 +42,7 @@
 
   <tr>
    <td width=50><p align=center><%=comment.id%></td>
-   <td width=50><p align=center><img src="<%=comment.image_url(:thumb)%>"></td>
+   <td width=50><p align=center><img src="<%=comment.image_url(:thumb)%>" alt="이미지 없음"></td>
    <td width=80><p align=center><%=comment.name%></td>
    <td width=320><p align=center><a href="/comments/look/<%=comment.id%>"><%=comment.subject%></a></td>  
   <td width=100><p align=center><p align=center><%=comment.created_at%></p></td>

@@ -38,7 +38,7 @@
             <div class="col-md-5 text-right">
 <img src="<%= @post.image_url(:medium) %>">
 </div>
-<div class="col-md-5">
+<div class="col-md-4">
 
 <h3><%= @post.title %></h3>
     <p><%= @post.content %></p>
@@ -119,19 +119,15 @@
 
 <input type="hidden" name="bb" value=<%=@post.id%>>
 <%if @user!=1%>
-<div class="btn-group-justified" role="group" aria-label="...">
-<div class="btn-group" role="group">
-<button type="button" class="btn btn-default" onclick="addtocart();">ADD TO CART</button></div>
-<div class="btn-group" role="group">
-<button type="button" class="btn btn-default" onclick="buy();">BUY</button>
-</div>
-</div>
+<p><button type="button" class="btn btn-large btn-block btn-inverse" onclick="addtocart();">ADD TO CART</button>
+</p><button type="button" class="btn btn-large btn-block btn-default" onclick="buy();">BUY</button>
+
 <%end%>
 
 
 
 </form>
-</div><div class="col-md-1">
+</div><div class="col-md-2">
 </div>
 
 
